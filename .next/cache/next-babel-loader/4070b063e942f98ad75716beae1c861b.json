@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default {\n  debug: true\n};","map":{"version":3,"sources":["/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/world.config.js"],"names":["debug"],"mappings":"AAAA,eAAe;AACXA,EAAAA,KAAK,EAAE;AADI,CAAf","sourcesContent":["export default {\n    debug: true\n}"]},"metadata":{},"sourceType":"module"}

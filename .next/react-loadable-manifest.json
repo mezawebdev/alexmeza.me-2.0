@@ -1,0 +1,168 @@
+{
+  "../components/World/World": [
+    {
+      "id": "./components/Navigation/Navigation.scss",
+      "name": "./components/Navigation/Navigation.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/reset.scss",
+      "name": "./assets/scss/reset.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/global.scss",
+      "name": "./assets/scss/global.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/stars.scss",
+      "name": "./assets/scss/stars.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/World/Camera.js",
+      "name": "./components/World/Camera.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/Config.js",
+      "name": "./components/World/Config.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/Effects.js",
+      "name": "./components/World/Effects.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/Ground.js",
+      "name": "./components/World/Ground.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/Light.js",
+      "name": "./components/World/Light.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/Stars.js",
+      "name": "./components/World/Stars.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/Utils.js",
+      "name": "./components/World/Utils.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/World.js",
+      "name": "./components/World/World.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js",
+      "name": "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/babylonjs-materials/babylonjs.materials.min.js",
+      "name": "./node_modules/babylonjs-materials/babylonjs.materials.min.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/babylonjs/babylon.js",
+      "name": "./node_modules/babylonjs/babylon.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/fn/parse-int.js",
+      "name": "./node_modules/core-js/library/fn/parse-int.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_parse-int.js",
+      "name": "./node_modules/core-js/library/modules/_parse-int.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_string-trim.js",
+      "name": "./node_modules/core-js/library/modules/_string-trim.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_string-ws.js",
+      "name": "./node_modules/core-js/library/modules/_string-ws.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/es6.parse-int.js",
+      "name": "./node_modules/core-js/library/modules/es6.parse-int.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/jquery/dist/jquery.js",
+      "name": "./node_modules/jquery/dist/jquery.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./public/js/vendor/flexBackground.js",
+      "name": "./public/js/vendor/flexBackground.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "./dev/noop": [
+    {
+      "id": "./node_modules/next/dist/client/dev/noop.js",
+      "name": "./node_modules/next/dist/client/dev/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    }
+  ]
+}
