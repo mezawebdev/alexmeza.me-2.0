@@ -27,8 +27,9 @@ class Ground {
         );
 
         this.defaultGround.rotate(BABYLON.Axis.Y, Config.ground.rotation, BABYLON.Space.WORLD);
-
-        // this.defaultGround.setPosition(new BABYLON.Vector3(2, 2, 0));
+        
+        this.defaultGround.position.x = Config.ground.x;
+        this.defaultGround.position.z = Config.ground.z;
     }
 
     setTerrain() {

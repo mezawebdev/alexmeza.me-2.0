@@ -11560,7 +11560,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************/
@@ -11583,5 +11583,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[2,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

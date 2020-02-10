@@ -1,0 +1,24 @@
+#backgrounds {
+    width          : 100vw;
+    height         : 100vh;
+    top            : 0px;
+    left           : 0px;
+    pointer-events : none;
+    position       : fixed;
+
+    #gradient-center-background {
+        width    : 100vw;
+        height   : 100vh;
+        position : fixed;
+        top      : 0px;
+        left     : 0px;
+    }
+
+    #bottom-color-background {
+        width    : 100vw;
+        height   : 50vh;
+        position : fixed;
+        bottom   : 0px;
+        left     : 0px;
+    }
+}

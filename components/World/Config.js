@@ -6,7 +6,33 @@ export default {
     },
     canvas: {
         style: {
-            background: "radial-gradient(circle, rgba(50,37,107,1) 0%, rgba(14,8,32,1) 100%)"
+            background: "rgba(0, 0, 0, 0)",
+            zIndex: "5",
+            position: "fixed"
+        }
+    },
+    backgrounds: {
+        style: {
+            zIndex: "3"
+        },
+        centerGradientBackground: {
+            style: {
+                zIndex: "3",
+                background: "radial-gradient(circle, rgba(50,37,107,1) 0%, rgba(14,8,32,1) 100%)"
+            }
+        },
+        bottomColorBackground: {
+            gradients: [
+                ['rgba(0, 0, 0, 0)', 'rgb(45, 226, 230)'],
+                ['rgba(0, 0, 0, 0)', 'rgb(101, 13, 137)'],
+                ['rgba(0, 0, 0, 0)', 'rgb(255, 108, 17)'],
+                ['rgba(0, 0, 0, 0)', 'rgb(246, 1, 157)'],
+                ['rgba(0, 0, 0, 0)', 'rgb(121, 30, 148)']
+            ],
+            style: {
+                zIndex: "4",
+                opacity: "0.4"
+            }
         }
     },
     stars: {
@@ -35,21 +61,28 @@ export default {
     effects: {
         glow: {
             intensity: 0.25
+        },
+        fog: {
+            enabled: true,
+            density: 0.2,
+            color: new BABYLON.Color3.FromHexString("#e55ec9")
         }
     },
     ground: {
         heightMap: "images/height_map5.png",
         width: 4,
-        height: 15,
+        height: 10,
         textureHeight: 0.75,
-        subdivisions: 25,
+        subdivisions: 15,
         rotation: 0.785,
+        x: 2,
+        z: 2,
         grid: {
             mainColor: new BABYLON.Color3.FromHexString("#41093c"),
             lineColor: new BABYLON.Color3.FromHexString("#e55ec9"),
             gridRatio: 0.1,
             majorUnitFrequency: 1,
-            opacity: 1
+            opacity: 0.99
         }
     }
 }

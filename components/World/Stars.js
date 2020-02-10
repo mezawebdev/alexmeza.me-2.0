@@ -11,9 +11,9 @@ class Stars extends React.Component {
 
     componentDidMount() {
         window.jQuery = jQuery;
-        console.log($("#stars"));
-
+        
         require("../../public/js/vendor/flexBackground.js");
+        
         $("#stars").flexBackground({
             numberOfPoints: Config.stars.numberOfPoints,
 			radius: Config.stars.radius,
@@ -24,9 +24,7 @@ class Stars extends React.Component {
 
     render() {
         return (
-            <canvas id="stars">
-
-            </canvas>
+            <canvas style={ Config.stars.styles } id="stars"></canvas>
         );
     }
 }

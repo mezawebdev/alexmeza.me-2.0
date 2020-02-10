@@ -334,7 +334,28 @@ body {
   height: 100vh;
   top: 0px;
   left: 0px;
+  position: fixed;
+  z-index: 4; }
+
+#backgrounds {
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
   position: fixed; }
+  #backgrounds #gradient-center-background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px; }
+  #backgrounds #bottom-color-background {
+    width: 100vw;
+    height: 50vh;
+    position: fixed;
+    bottom: 0px;
+    left: 0px; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

@@ -7,12 +7,11 @@ class Camera {
         this.scene = scene;
         this.setCamera();
         this.defaultCamera.setTarget(new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z));
-
+        this.defaultCamera.minZ = 0;
+        
         if (Config.debug.cameraControls) {
             this.defaultCamera.attachControl(canvas, true);
         }
-
-        this.defaultCamera.minZ = 0;
     }
 
     setCamera() {

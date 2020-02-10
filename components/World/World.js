@@ -1,5 +1,5 @@
 import React from "react";
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from "babylonjs";
 import Config from "./Config";
 import Ground from "./Ground";
 import Camera from "./Camera";
@@ -7,6 +7,7 @@ import Light from "./Light";
 import Utils from "./Utils";
 import Effects from "./Effects";
 import Stars from "./Stars";
+import Backgrounds from "./Backgrounds";
 
 class World extends React.Component {
     constructor(props) {
@@ -61,6 +62,7 @@ class World extends React.Component {
         return (
             <div>
                 <Stars />
+                <Backgrounds />
                 <canvas 
                     id="canvas"
                     style={ Config.canvas.style }
