@@ -1,5 +1,5 @@
 import Config from "./Config";
-import * as BABYLON from 'babylonjs';
+// import * as BABYLON from 'babylonjs';
 
 class Effects {
     constructor(scene) {

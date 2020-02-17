@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -271,10 +271,52 @@ class Default extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         lineNumber: 15
       },
       __self: this
-    }, __jsx(World, {
+    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
+      },
+      __self: this
+    }, __jsx("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, "ALEX MEZA | Web Developer"), __jsx("meta", {
+      name: "viewport",
+      content: "initial-scale=1.0, width=device-width",
+      key: "viewport",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }), __jsx("script", {
+      src: "https://cdn.babylonjs.com/babylon.js",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }), __jsx("script", {
+      src: "https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }), __jsx("script", {
+      src: "/js/vendor/babylon.dynamicTerrain.min.js",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
+      },
+      __self: this
+    })), __jsx(World, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
       },
       __self: this
     }), this.props.children);
@@ -1998,7 +2040,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -2007,28 +2049,6 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 module.exports = __webpack_require__(/*! /Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js */"./pages/index.js");
 
-
-/***/ }),
-
-/***/ "babylonjs":
-/*!****************************!*\
-  !*** external "babylonjs" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("babylonjs");
-
-/***/ }),
-
-/***/ "babylonjs-materials":
-/*!**************************************!*\
-  !*** external "babylonjs-materials" ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("babylonjs-materials");
 
 /***/ }),
 
@@ -2084,17 +2104,6 @@ module.exports = require("core-js/library/fn/symbol/iterator");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/weak-map");
-
-/***/ }),
-
-/***/ "jquery":
-/*!*************************!*\
-  !*** external "jquery" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("jquery");
 
 /***/ }),
 

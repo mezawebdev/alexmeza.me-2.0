@@ -1,3 +1,5 @@
+import Config from "./Config";
+
 export default {
     showWorldAxis(size, scene) {
         var makeTextPlane = function(text, color, size) {
@@ -32,5 +34,8 @@ export default {
         axisZ.color = new BABYLON.Color3(0, 0, 1);
         var zChar = makeTextPlane("Z", "blue", size / 10);
         zChar.position = new BABYLON.Vector3(0, 0.05 * size, 0.9 * size);
+    },
+    getRandomPaletteColor() {
+        return Config.palette[Math.round(Math.random() * (Config.palette.length - 1))];
     }
 }

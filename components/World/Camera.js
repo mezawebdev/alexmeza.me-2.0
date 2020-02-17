@@ -1,4 +1,4 @@
-import * as BABYLON from "babylonjs";
+// import * as BABYLON from "babylonjs";
 import Config from "./Config";
 import Utils from "./Utils";
 
@@ -6,34 +6,56 @@ class Camera {
     constructor(canvas, scene) {
         this.scene = scene;
         this.setCamera();
-        this.defaultCamera.setTarget(new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z));
-        this.defaultCamera.minZ = 0;
+        this.camera.minZ = 0;
         
         if (Config.debug.cameraControls) {
-            this.defaultCamera.attachControl(canvas, true);
+            this.camera.attachControl(canvas, true);
         }
     }
 
     setCamera() {
         switch (Config.camera.type) {
             case "free":
-                this.defaultCamera = new BABYLON.UniversalCamera(
+                this.camera = new BABYLON.UniversalCamera(
                     "UniversalCamera", 
                     new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z), 
                     this.scene
                 );
             break;
             case "arc":
-                this.defaultCamera = new BABYLON.ArcRotateCamera(
+                this.camera = new BABYLON.ArcRotateCamera(
                     "Camera", 
-                    0, 
-                    0, 
-                    0, 
+                    Config.camera.initialTarget.x, 
+                    Config.camera.initialTarget.y, 
+                    Config.camera.initialTarget.z, 
                     new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z), 
                     this.scene
                 );
+
+                this.createTarget();
+            break;
+            case "follow":
+                this.camera = new BABYLON.FollowCamera(
+                    "Camera", 
+                    new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z), 
+                    this.scene
+                );
+
+                this.createTarget();
             break;
         }
+    }
+
+    createTarget() {
+        this.camera.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
+            diameter: 0.01
+        });
+
+        this.camera.targetSphere.position = new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z);
+
+        this.camera.lockedTarget = this.camera.targetSphere;
+
+        this.camera.position = new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z);
     }
 }
 

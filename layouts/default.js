@@ -13,6 +13,16 @@ class Default extends React.Component {
     render() {
         return (
             <div id="layout-default">
+                <Head>
+                    <title>ALEX MEZA | Web Developer</title>
+                    <meta
+                        name="viewport"
+                        content="initial-scale=1.0, width=device-width"
+                        key="viewport" />
+                    <script src="https://cdn.babylonjs.com/babylon.js" />
+                    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+                    <script src="/js/vendor/babylon.dynamicTerrain.min.js" />
+                </Head>
                 <World />
                 { this.props.children }
             </div>

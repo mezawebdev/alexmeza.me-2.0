@@ -12,17 +12,6 @@ exports.modules = {
 
 /***/ }),
 
-/***/ "./assets/scss/stars.scss":
-/*!********************************!*\
-  !*** ./assets/scss/stars.scss ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./components/World/Backgrounds.js":
 /*!*****************************************!*\
   !*** ./components/World/Backgrounds.js ***!
@@ -107,11 +96,9 @@ class Backgrounds extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babylonjs */ "babylonjs");
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babylonjs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Utils */ "./components/World/Utils.js");
-
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Utils */ "./components/World/Utils.js");
+// import * as BABYLON from "babylonjs";
 
 
 
@@ -119,24 +106,38 @@ class Camera {
   constructor(canvas, scene) {
     this.scene = scene;
     this.setCamera();
-    this.defaultCamera.setTarget(new babylonjs__WEBPACK_IMPORTED_MODULE_0__["Vector3"](_Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialTarget.z));
-    this.defaultCamera.minZ = 0;
+    this.camera.minZ = 0;
 
-    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].debug.cameraControls) {
-      this.defaultCamera.attachControl(canvas, true);
+    if (_Config__WEBPACK_IMPORTED_MODULE_0__["default"].debug.cameraControls) {
+      this.camera.attachControl(canvas, true);
     }
   }
 
   setCamera() {
-    switch (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.type) {
+    switch (_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.type) {
       case "free":
-        this.defaultCamera = new babylonjs__WEBPACK_IMPORTED_MODULE_0__["UniversalCamera"]("UniversalCamera", new babylonjs__WEBPACK_IMPORTED_MODULE_0__["Vector3"](_Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialPosition.z), this.scene);
+        this.camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.z), this.scene);
         break;
 
       case "arc":
-        this.defaultCamera = new babylonjs__WEBPACK_IMPORTED_MODULE_0__["ArcRotateCamera"]("Camera", 0, 0, 0, new babylonjs__WEBPACK_IMPORTED_MODULE_0__["Vector3"](_Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].camera.initialPosition.z), this.scene);
+        this.camera = new BABYLON.ArcRotateCamera("Camera", _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.z, new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.z), this.scene);
+        this.createTarget();
+        break;
+
+      case "follow":
+        this.camera = new BABYLON.FollowCamera("Camera", new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.z), this.scene);
+        this.createTarget();
         break;
     }
+  }
+
+  createTarget() {
+    this.camera.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
+      diameter: 0.01
+    });
+    this.camera.targetSphere.position = new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.z);
+    this.camera.lockedTarget = this.camera.targetSphere;
+    this.camera.position = new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.z);
   }
 
 }
@@ -160,82 +161,146 @@ __webpack_require__.r(__webpack_exports__);
     axisSize: 1.5,
     cameraControls: true
   },
+  palette: ["#2DE2E6", "#F706CF", "#791E94", "#FF4365", "#F9C80E", "#FF6C11"],
   canvas: {
     style: {
-      background: "rgba(0, 0, 0, 0)",
+      background: "radial-gradient(circle, rgba(50,37,107,1) 0%, rgba(14,8,32,1) 100%)",
       zIndex: "5",
       position: "fixed"
     }
   },
+  controls: {
+    enabled: true
+  },
   backgrounds: {
     style: {
-      zIndex: "3"
+      zIndex: "6"
     },
     centerGradientBackground: {
       style: {
         zIndex: "3",
-        background: "radial-gradient(circle, rgba(50,37,107,1) 0%, rgba(14,8,32,1) 100%)"
+        background: "rgba(0, 0, 0, 0)"
       }
     },
     bottomColorBackground: {
       gradients: [['rgba(0, 0, 0, 0)', 'rgb(45, 226, 230)'], ['rgba(0, 0, 0, 0)', 'rgb(101, 13, 137)'], ['rgba(0, 0, 0, 0)', 'rgb(255, 108, 17)'], ['rgba(0, 0, 0, 0)', 'rgb(246, 1, 157)'], ['rgba(0, 0, 0, 0)', 'rgb(121, 30, 148)']],
       style: {
-        zIndex: "4",
-        opacity: "0.4"
+        zIndex: "2",
+        opacity: "0.2"
       }
     }
   },
   stars: {
-    show: true,
-    numberOfPoints: 150,
-    radius: 0.25,
-    interval: 50,
-    color: "rgb(250, 250, 250)"
+    enabled: true,
+    amount: 500,
+    diameter: 0.005,
+    minPos: -10,
+    maxPos: 50
   },
   camera: {
-    type: "free",
+    type: "arc",
     maxZ: 10,
     initialPosition: {
-      x: -1.5,
-      y: 0.2,
-      z: -1.5
+      x: -0.11,
+      y: 0.05,
+      z: -0.11
     },
     initialTarget: {
-      x: 0.5,
-      y: 0.5,
-      z: 0.5
+      x: 0.1,
+      y: 0.075,
+      z: 0.1
     },
     walk: true,
     walkSpeed: 0.01
   },
   effects: {
+    enabled: true,
     glow: {
-      intensity: 0.25
+      intensity: 3
     },
     fog: {
-      enabled: true,
-      density: 0.2,
-      color: new BABYLON.Color3.FromHexString("#e55ec9")
+      enabled: false,
+      density: 0.01,
+      color: new BABYLON.Color3.FromHexString("#000000")
     }
   },
   ground: {
+    enabled: true,
     heightMap: "images/height_map5.png",
-    width: 4,
-    height: 10,
-    textureHeight: 0.75,
-    subdivisions: 15,
-    rotation: 0.785,
-    x: 2,
-    z: 2,
+    width: 15,
+    height: 15,
+    textureHeight: 0,
+    subdivisions: 2,
+    rotation: 0.7854,
+    x: 3,
+    z: 3,
     grid: {
-      mainColor: new BABYLON.Color3.FromHexString("#41093c"),
-      lineColor: new BABYLON.Color3.FromHexString("#e55ec9"),
+      mainColor: new BABYLON.Color3.FromHexString("#000000"),
+      lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
       gridRatio: 0.1,
       majorUnitFrequency: 1,
-      opacity: 0.99
+      opacity: 1
     }
+  },
+  mountains: {
+    enabled: false,
+    meshes: [{
+      heightMap: "images/height_map5.png",
+      width: 15,
+      height: 15,
+      textureHeight: 3,
+      subdivisions: 20,
+      rotation: 0.785,
+      x: 3,
+      z: 3,
+      y: -0.1,
+      grid: {
+        mainColor: new BABYLON.Color3.FromHexString("#000000"),
+        lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
+        gridRatio: 0.2,
+        majorUnitFrequency: 1,
+        opacity: 1
+      }
+    }, {
+      heightMap: "images/height_map8.png",
+      width: 2,
+      height: 5,
+      textureHeight: 0.5,
+      subdivisions: 20,
+      rotation: 0.785,
+      x: 3,
+      z: 3,
+      y: -0.1,
+      grid: {
+        mainColor: new BABYLON.Color3.FromHexString("#000000"),
+        lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
+        gridRatio: 0.2,
+        majorUnitFrequency: 1,
+        opacity: 1
+      }
+    }]
   }
 });
+
+/***/ }),
+
+/***/ "./components/World/Controls.js":
+/*!**************************************!*\
+  !*** ./components/World/Controls.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class Controls {
+  constructor(world) {
+    this.world = world;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Controls);
 
 /***/ }),
 
@@ -249,10 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babylonjs */ "babylonjs");
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babylonjs__WEBPACK_IMPORTED_MODULE_1__);
-
-
+ // import * as BABYLON from 'babylonjs';
 
 class Effects {
   constructor(scene) {
@@ -265,12 +327,12 @@ class Effects {
   }
 
   createGlow() {
-    this.glow = new babylonjs__WEBPACK_IMPORTED_MODULE_1__["GlowLayer"]("glow", this.scene);
+    this.glow = new BABYLON.GlowLayer("glow", this.scene);
     this.glow.intensity = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].effects.glow.intensity;
   }
 
   createFog() {
-    this.scene.fogMode = babylonjs__WEBPACK_IMPORTED_MODULE_1__["Scene"].FOGMODE_EXP;
+    this.scene.fogMode = BABYLON.Scene.FOGMODE_EXP;
     this.scene.fogDensity = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].effects.fog.density;
     this.scene.fogColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].effects.fog.color;
   }
@@ -290,93 +352,71 @@ class Effects {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babylonjs */ "babylonjs");
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babylonjs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-/* harmony import */ var babylonjs_materials__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babylonjs-materials */ "babylonjs-materials");
-/* harmony import */ var babylonjs_materials__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babylonjs_materials__WEBPACK_IMPORTED_MODULE_2__);
-
-
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
 
 
 class Ground {
   constructor(scene) {
     this.scene = scene;
-    this.createGround(); // this.setTerrain();
+    this.createGround(); // this.createDynamicTerrain();
 
     this.setMaterial();
   }
 
   createGround() {
-    this.defaultGround = new babylonjs__WEBPACK_IMPORTED_MODULE_0__["Mesh"].CreateGroundFromHeightMap("ground", _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.heightMap, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.width, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.height, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.subdivisions, 0, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.textureHeight, this.scene, true);
-    this.defaultGround.rotate(babylonjs__WEBPACK_IMPORTED_MODULE_0__["Axis"].Y, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.rotation, babylonjs__WEBPACK_IMPORTED_MODULE_0__["Space"].WORLD);
-    this.defaultGround.position.x = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.x;
-    this.defaultGround.position.z = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.z;
+    // this.defaultGround = new BABYLON.Mesh.CreateGroundFromHeightMap(
+    //     "ground", 
+    //     Config.ground.heightMap, 
+    //     Config.ground.width, 
+    //     Config.ground.height, 
+    //     Config.ground.subdivisions, 
+    //     0, 
+    //     Config.ground.textureHeight, 
+    //     this.scene, 
+    //     true
+    // );
+    this.defaultGround = new BABYLON.MeshBuilder.CreateGround("ground", {
+      width: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.width,
+      height: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.height
+    });
+    this.defaultGround.rotate(BABYLON.Axis.Y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.rotation, BABYLON.Space.WORLD);
+    this.defaultGround.position.x = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.x;
+    this.defaultGround.position.z = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.z;
   }
 
-  setTerrain() {// let script = document.createElement("script");
-    // script.src = "https://cdn.rawgit.com/BabylonJS/Extensions/master/DynamicTerrain/dist/babylon.dynamicTerrain.min.js";
-    // document.body.appendChild(script);
-    // script.onload = () => {
-    //     var mapSubX = 500;
-    //     var mapSubZ = 300;
-    //     var terrainSub = 100;
-    //     var mapData = new Float32Array(mapSubX * mapSubZ * 3);  
-    //     for (var l = 0; l < mapSubZ; l++) {           
-    //         for (var w = 0; w < mapSubX; w++) {                
-    //             mapData[3 *(l * mapSubX + w)] = (w - mapSubX * 0.5) * 2.0;
-    //             mapData[3 * (l * mapSubX + w) + 1] = w / (l +1) * Math.sin((l + 1) / 2) * Math.cos(w / 2) * 2.0;
-    //             mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.5) * 2.0;
-    //        }            
-    //     }
-    //     var params = {
-    //         mapData: mapData,
-    //         mapSubX: mapSubX,
-    //         mapSubZ: mapSubZ,
-    //         terrainSub: terrainSub
-    //     };
-    //     terrain = new BABYLON.DynamicTerrain("terrain", params, this.scene);
-    //     terrain.mesh.material = terrainMaterial;
-    //     terrain.subToleranceX = 8;
-    //     terrain.subToleranceZ = 8;
-    //     terrain.LODLimits = [4, 3, 2, 1, 1];
-    //     terrainCreated = true;
+  createDynamicTerrain() {
+    let mapSubX = 500,
+        mapSubZ = 500,
+        mapData = new Float32Array(mapSubX * mapSubZ * 3); // for (var l = 0; l < mapSubZ; l++) {           
+    //     for (var w = 0; w < mapSubX; w++) {                
+    //         mapData[3 *(l * mapSubX + w)] = (w - mapSubX * 0.5) * 2.0;
+    //         mapData[3 * (l * mapSubX + w) + 1] = w / (l +1) * Math.sin(l / 2) * Math.cos(w / 2) * 2.0;
+    //         mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.5) * 2.0;
+    //    }            
     // }
-    // var mapSubX = 500;
-    //     var mapSubZ = 300;
-    //     var terrainSub = 100;
-    //     var mapData = new Float32Array(mapSubX * mapSubZ * 3);  
-    //     for (var l = 0; l < mapSubZ; l++) {           
-    //         for (var w = 0; w < mapSubX; w++) {                
-    //             mapData[3 *(l * mapSubX + w)] = (w - mapSubX * 0.5) * 2.0;
-    //             mapData[3 * (l * mapSubX + w) + 1] = w / (l +1) * Math.sin((l + 1) / 2) * Math.cos(w / 2) * 2.0;
-    //             mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.5) * 2.0;
-    //        }            
-    //     }
-    //     var params = {
-    //         mapData: mapData,
-    //         mapSubX: mapSubX,
-    //         mapSubZ: mapSubZ,
-    //         terrainSub: terrainSub
-    //     };
-    // terrain = new BABYLON.DynamicTerrain("terrain", params, this.scene);
-    // terrain.mesh.material = terrainMaterial;
-    // terrain.subToleranceX = 8;
-    // terrain.subToleranceZ = 8;
-    // terrain.LODLimits = [4, 3, 2, 1, 1];
-    // terrainCreated = true;
+
+    var params = {
+      mapData: mapData,
+      mapSubX: mapSubX,
+      mapSubZ: mapSubZ,
+      terrainSub: 200
+    };
+    this.terrain = new BABYLON.DynamicTerrain("terrain", params, this.scene);
+    this.terrain.subToleranceX = 16;
+    this.terrain.subToleranceZ = 16;
+    this.terrain.LODLimits = [4, 3, 2, 1, 1];
+    this.terrainCreated = true;
   }
 
   setMaterial() {
-    this.gridMaterial = new babylonjs_materials__WEBPACK_IMPORTED_MODULE_2__["GridMaterial"]("gridMaterial", this.scene);
-    this.gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.grid.mainColor;
-    this.gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.grid.lineColor;
-    this.gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.grid.gridRatio;
+    this.gridMaterial = new BABYLON.GridMaterial("gridMaterial", this.scene);
+    this.gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.mainColor;
+    this.gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.lineColor;
+    this.gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.gridRatio;
     this.gridMaterial.backFaceCulling = false;
-    this.gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.grid.majorUnitFrequency;
-    this.gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.grid.opacity;
-    this.gridMaterial.emissiveColor = _Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.grid.lineColor;
-    this.defaultGround.material = this.gridMaterial;
+    this.gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.majorUnitFrequency;
+    this.gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.opacity;
+    this.defaultGround.material = this.gridMaterial; // this.terrain.mesh.material = this.gridMaterial;
   }
 
 }
@@ -405,6 +445,54 @@ class Light {
 
 /***/ }),
 
+/***/ "./components/World/Mountains.js":
+/*!***************************************!*\
+  !*** ./components/World/Mountains.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+
+
+class Mountains {
+  constructor(scene) {
+    this.scene = scene;
+    this.createMountains();
+    this.setMaterials();
+  }
+
+  createMountains() {
+    _Config__WEBPACK_IMPORTED_MODULE_0__["default"].mountains.meshes.forEach(mountain => {
+      mountain.mesh = new BABYLON.Mesh.CreateGroundFromHeightMap(`ground-${Math.round(Math.random() * 100)}`, mountain.heightMap, mountain.width, mountain.height, mountain.subdivisions, 0, mountain.textureHeight, this.scene, true);
+      mountain.mesh.rotate(BABYLON.Axis.Y, mountain.rotation, BABYLON.Space.WORLD);
+      mountain.mesh.position.x = mountain.x;
+      mountain.mesh.position.z = mountain.z;
+      mountain.mesh.position.y = mountain.y;
+    });
+  }
+
+  setMaterials() {
+    _Config__WEBPACK_IMPORTED_MODULE_0__["default"].mountains.meshes.forEach(mountain => {
+      let gridMaterial = new BABYLON.GridMaterial(`gridMaterial-${Math.round(Math.random() * 100)}`, this.scene);
+      gridMaterial.mainColor = mountain.grid.mainColor;
+      gridMaterial.lineColor = mountain.grid.lineColor;
+      gridMaterial.gridRatio = mountain.grid.gridRatio;
+      gridMaterial.backFaceCulling = false;
+      gridMaterial.majorUnitFrequency = mountain.grid.majorUnitFrequency;
+      gridMaterial.opacity = mountain.grid.opacity;
+      mountain.mesh.material = gridMaterial;
+    });
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Mountains);
+
+/***/ }),
+
 /***/ "./components/World/Stars.js":
 /*!***********************************!*\
   !*** ./components/World/Stars.js ***!
@@ -414,49 +502,29 @@ class Light {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-/* harmony import */ var _assets_scss_stars_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/scss/stars.scss */ "./assets/scss/stars.scss");
-/* harmony import */ var _assets_scss_stars_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_stars_scss__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/components/World/Stars.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+/* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Utils */ "./components/World/Utils.js");
 
 
 
-
-
-
-class Stars extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  constructor(props) {
-    super(props);
+class Stars {
+  constructor(scene) {
+    this.scene = scene;
+    this.stars = [];
+    this.createStars(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.amount);
   }
 
-  componentDidMount() {
-    window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-    __webpack_require__(/*! ../../public/js/vendor/flexBackground.js */ "./public/js/vendor/flexBackground.js");
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()("#stars").flexBackground({
-      numberOfPoints: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].stars.numberOfPoints,
-      radius: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].stars.radius,
-      interval: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].stars.interval,
-      color: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].stars.color
-    });
-  }
-
-  render() {
-    return __jsx("canvas", {
-      style: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].stars.styles,
-      id: "stars",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    });
+  createStars(amount) {
+    for (let i = 0; i < amount; i++) {
+      let star = BABYLON.MeshBuilder.CreateSphere("sphere", {
+        diameter: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.diameter
+      }, this.scene);
+      let starMaterial = new BABYLON.StandardMaterial("myMaterial", this.scene);
+      starMaterial.emissiveColor = new BABYLON.Color3.FromHexString(_Utils__WEBPACK_IMPORTED_MODULE_1__["default"].getRandomPaletteColor());
+      star.position = new BABYLON.Vector3(Math.random(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.minPos, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.maxPos), Math.random(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.minPos, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.maxPos), Math.random(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.minPos, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.maxPos));
+      star.material = starMaterial;
+      this.stars.push(star);
+    }
   }
 
 }
@@ -474,6 +542,8 @@ class Stars extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   showWorldAxis(size, scene) {
     var makeTextPlane = function (text, color, size) {
@@ -500,6 +570,10 @@ __webpack_require__.r(__webpack_exports__);
     axisZ.color = new BABYLON.Color3(0, 0, 1);
     var zChar = makeTextPlane("Z", "blue", size / 10);
     zChar.position = new BABYLON.Vector3(0, 0.05 * size, 0.9 * size);
+  },
+
+  getRandomPaletteColor() {
+    return _Config__WEBPACK_IMPORTED_MODULE_0__["default"].palette[Math.round(Math.random() * (_Config__WEBPACK_IMPORTED_MODULE_0__["default"].palette.length - 1))];
   }
 
 });
@@ -517,18 +591,19 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babylonjs */ "babylonjs");
-/* harmony import */ var babylonjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babylonjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-/* harmony import */ var _Ground__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Ground */ "./components/World/Ground.js");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+/* harmony import */ var _Ground__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ground */ "./components/World/Ground.js");
+/* harmony import */ var _Mountains__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Mountains */ "./components/World/Mountains.js");
 /* harmony import */ var _Camera__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Camera */ "./components/World/Camera.js");
 /* harmony import */ var _Light__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Light */ "./components/World/Light.js");
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Utils */ "./components/World/Utils.js");
 /* harmony import */ var _Effects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Effects */ "./components/World/Effects.js");
 /* harmony import */ var _Stars__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Stars */ "./components/World/Stars.js");
 /* harmony import */ var _Backgrounds__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Backgrounds */ "./components/World/Backgrounds.js");
+/* harmony import */ var _Controls__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Controls */ "./components/World/Controls.js");
 var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/components/World/World.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -553,37 +628,50 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   startEngine() {
-    this.engine = new babylonjs__WEBPACK_IMPORTED_MODULE_1__["Engine"](this.canvas.current, true);
-    this.scene = new babylonjs__WEBPACK_IMPORTED_MODULE_1__["Scene"](this.engine);
+    this.engine = new BABYLON.Engine(this.canvas.current, true);
+    this.scene = new BABYLON.Scene(this.engine);
     this.camera = new _Camera__WEBPACK_IMPORTED_MODULE_4__["default"](this.canvas.current, this.scene);
   }
 
   renderWorld() {
-    this.scene.clearColor = new babylonjs__WEBPACK_IMPORTED_MODULE_1__["Color4"](0, 0, 0, 0);
+    this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
     this.light = new _Light__WEBPACK_IMPORTED_MODULE_5__["default"](this.scene);
-    this.ground = new _Ground__WEBPACK_IMPORTED_MODULE_3__["default"](this.scene);
-    this.effects = new _Effects__WEBPACK_IMPORTED_MODULE_7__["default"](this.scene);
+
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.enabled) {
+      this.ground = new _Ground__WEBPACK_IMPORTED_MODULE_2__["default"](this.scene);
+    }
+
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].mountains.enabled) {
+      this.mountains = new _Mountains__WEBPACK_IMPORTED_MODULE_3__["default"](this.scene);
+    }
+
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].stars.enabled) {
+      this.stars = new _Stars__WEBPACK_IMPORTED_MODULE_8__["default"](this.scene);
+    }
+
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].effects.enabled) {
+      this.effects = new _Effects__WEBPACK_IMPORTED_MODULE_7__["default"](this.scene);
+    }
   }
 
   componentDidMount() {
     this.startEngine();
     this.renderWorld();
 
-    if (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].debug.axis) {
-      _Utils__WEBPACK_IMPORTED_MODULE_6__["default"].showWorldAxis(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].debug.axisSize, this.scene);
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].debug.axis) {
+      _Utils__WEBPACK_IMPORTED_MODULE_6__["default"].showWorldAxis(_Config__WEBPACK_IMPORTED_MODULE_1__["default"].debug.axisSize, this.scene);
     }
 
-    this.engine.runRenderLoop(() => {
-      this.scene.render();
-    });
-
-    if (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].stars.show) {
-      this.stars = new _Stars__WEBPACK_IMPORTED_MODULE_8__["default"]();
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].controls.enabled) {
+      this.controls = new _Controls__WEBPACK_IMPORTED_MODULE_10__["default"](this);
     }
 
     this.resize();
     window.addEventListener("resize", () => {
       this.resize();
+    });
+    this.engine.runRenderLoop(() => {
+      this.scene.render();
     });
   }
 
@@ -591,28 +679,22 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 78
       },
       __self: this
-    }, __jsx(_Stars__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, __jsx(_Backgrounds__WEBPACK_IMPORTED_MODULE_9__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
-      },
-      __self: this
-    }), __jsx(_Backgrounds__WEBPACK_IMPORTED_MODULE_9__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 79
       },
       __self: this
     }), __jsx("canvas", {
       id: "canvas",
-      style: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].canvas.style,
+      style: _Config__WEBPACK_IMPORTED_MODULE_1__["default"].canvas.style,
       ref: this.canvas,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 80
       },
       __self: this
     }));
@@ -621,133 +703,6 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (World);
-
-/***/ }),
-
-/***/ "./public/js/vendor/flexBackground.js":
-/*!********************************************!*\
-  !*** ./public/js/vendor/flexBackground.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function ($) {
-  $.fn.flexBackground = function (options) {
-    'use strict';
-    /**------------------ SETTING PARAMETERS ------------------**/
-
-    var height;
-    var width;
-    var points = 800;
-    var numberOfPoints = 200;
-    var radius = 1;
-    var interval = 50;
-    var color = {
-      r: 256,
-      g: 256,
-      b: 256
-    };
-    var config = {};
-
-    if (options) {
-      $.extend(config, options);
-    }
-    /**------------------ BEGIN FUNCTION BODY ------------------**/
-
-
-    var selector = $(this);
-    var selectorCan = $("#stars");
-    if (config.numberOfPoints) points = parseInt(config.numberOfPoints, 10);
-    if (config.radius) radius = parseInt(config.radius, 10);
-    if (config.interval) interval = parseInt(config.interval, 10);
-
-    if (config.color) {
-      var regExp = new RegExp("\\d+", "g");
-      color.r = regExp.exec(config.color);
-      color.g = regExp.exec(config.color);
-      color.b = regExp.exec(config.color);
-    }
-    /**------------------------------------------------  SETTING FUNCTIONS ------------------------------------------------- **/
-
-
-    width = selector.width();
-    height = selector.height();
-    selectorCan.attr('height', height);
-    selectorCan.attr('width', width);
-    var canvas = selectorCan[0];
-    var ctx = canvas.getContext("2d");
-    var snow = new Array();
-
-    function refresh() {
-      width = selector.width();
-      height = selector.height();
-      selectorCan.attr('height', height);
-      selectorCan.attr('width', width);
-
-      for (var i = 0; i < points; i++) {
-        var tempVar;
-        snow[i] = {
-          posX: 100,
-          posY: 100,
-          initialX: 100,
-          initialY: 100,
-          radius: 3,
-          opacity: .5,
-          initialOpacity: .5
-        };
-        snow[i].posX = width * Math.random();
-        snow[i].posY = height * Math.random();
-        snow[i].initialX = snow[i].posX;
-        snow[i].initialY = snow[i].posY;
-        snow[i].radius = Math.random() * radius;
-        snow[i].opacity = Math.random();
-        snow[i].initialOpacity = snow[i].opacity;
-      }
-    }
-
-    function createSnow(snowID) {
-      ctx.beginPath();
-      ctx.arc(snow[snowID].posX, snow[snowID].posY, snow[snowID].radius, 0, 2 * Math.PI, false);
-      ctx.fillStyle = "rgba(" + color.r + "," + color.g + "," + color.b + "," + snow[snowID].opacity + ")";
-      ctx.fill();
-      ctx.closePath();
-      snow[snowID].posX = snow[snowID].posX - (width / 2 - snow[snowID].posX) / 200;
-      snow[snowID].posY = snow[snowID].posY - (height / 2 - snow[snowID].posY) / 200;
-      snow[snowID].radius += .005;
-
-      if (snow[snowID].posX < 0 || snow[snowID].posY < 0 || snow[snowID].posX > width || snow[snowID].posY > height) {
-        snow[snowID].posX = snow[snowID].initialX;
-        snow[snowID].posY = snow[snowID].initialY;
-        snow[snowID].radius = 0;
-      }
-
-      if (snow[snowID].radius > 2) {
-        if (snow[snowID].opacity >= 0) {
-          snow[snowID].opacity -= .05;
-        } else {
-          snow[snowID].posX = snow[snowID].initialX;
-          snow[snowID].posY = snow[snowID].initialY;
-          snow[snowID].radius = 0;
-          snow[snowID].opacity = snow[snowID].initialOpacity;
-        }
-      }
-    }
-
-    function setBackground() {
-      ctx.clearRect(0, 0, width, height);
-
-      for (var i = 0; i < points; i++) {
-        createSnow(i);
-      }
-    }
-
-    refresh();
-    setInterval(setBackground, interval);
-    $(window).resize(function () {
-      refresh();
-    });
-  };
-})(jQuery);
 
 /***/ }),
 

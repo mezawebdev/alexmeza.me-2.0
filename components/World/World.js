@@ -1,13 +1,14 @@
 import React from "react";
-import * as BABYLON from "babylonjs";
 import Config from "./Config";
 import Ground from "./Ground";
+import Mountains from "./Mountains";
 import Camera from "./Camera";
 import Light from "./Light";
 import Utils from "./Utils";
 import Effects from "./Effects";
 import Stars from "./Stars";
 import Backgrounds from "./Backgrounds";
+import Controls from "./Controls";
 
 class World extends React.Component {
     constructor(props) {
@@ -28,10 +29,24 @@ class World extends React.Component {
     }
 
     renderWorld() {
-        this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+        this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
         this.light = new Light(this.scene);
-        this.ground = new Ground(this.scene);
-        this.effects = new Effects(this.scene);
+
+        if (Config.ground.enabled) {
+            this.ground = new Ground(this.scene);
+        }
+
+        if (Config.mountains.enabled) {
+            this.mountains = new Mountains(this.scene);
+        }
+
+        if (Config.stars.enabled) {
+            this.stars = new Stars(this.scene);
+        }
+
+        if (Config.effects.enabled) {
+            this.effects = new Effects(this.scene);
+        }
     }
 
     componentDidMount() {
@@ -43,12 +58,8 @@ class World extends React.Component {
             Utils.showWorldAxis(Config.debug.axisSize, this.scene);
         }
 
-        this.engine.runRenderLoop(() => { 
-            this.scene.render();
-        });
-
-        if (Config.stars.show) {
-            this.stars = new Stars();
+        if (Config.controls.enabled) {
+            this.controls = new Controls(this);
         }
 
         this.resize();
@@ -56,12 +67,15 @@ class World extends React.Component {
         window.addEventListener("resize", () => { 
             this.resize();
         });
+
+        this.engine.runRenderLoop(() => { 
+            this.scene.render();
+        });
     }
 
     render() {
         return (
             <div>
-                <Stars />
                 <Backgrounds />
                 <canvas 
                     id="canvas"

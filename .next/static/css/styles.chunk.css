@@ -329,14 +329,6 @@ html,
 body {
   overflow: hidden; }
 
-#stars {
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  z-index: 4; }
-
 #backgrounds {
   width: 100vw;
   height: 100vh;

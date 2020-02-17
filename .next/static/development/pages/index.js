@@ -162,10 +162,52 @@ function (_React$Component) {
           lineNumber: 15
         },
         __self: this
-      }, __jsx(World, {
+      }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_8___default.a, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 16
+        },
+        __self: this
+      }, __jsx("title", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        },
+        __self: this
+      }, "ALEX MEZA | Web Developer"), __jsx("meta", {
+        name: "viewport",
+        content: "initial-scale=1.0, width=device-width",
+        key: "viewport",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        },
+        __self: this
+      }), __jsx("script", {
+        src: "https://cdn.babylonjs.com/babylon.js",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }), __jsx("script", {
+        src: "https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        },
+        __self: this
+      }), __jsx("script", {
+        src: "/js/vendor/babylon.dynamicTerrain.min.js",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
+        },
+        __self: this
+      })), __jsx(World, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
         },
         __self: this
       }), this.props.children);
@@ -11560,7 +11602,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************/
@@ -11583,5 +11625,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

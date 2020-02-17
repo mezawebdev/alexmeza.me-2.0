@@ -1,31 +1,29 @@
-import $ from "jquery";
-import jQuery from "jquery";
-import React from "react";
 import Config from "./Config";
-import "../../assets/scss/stars.scss";
+import Utils from "./Utils";
 
-class Stars extends React.Component {
-    constructor(props) {
-        super(props);
+class Stars {
+    constructor(scene) {
+        this.scene = scene;
+        this.stars = [];
+        this.createStars(Config.stars.amount);
     }
 
-    componentDidMount() {
-        window.jQuery = jQuery;
-        
-        require("../../public/js/vendor/flexBackground.js");
-        
-        $("#stars").flexBackground({
-            numberOfPoints: Config.stars.numberOfPoints,
-			radius: Config.stars.radius,
-			interval: Config.stars.interval,
-			color: Config.stars.color
-        });
-    }
+    createStars(amount) {
+        for (let i = 0; i < amount; i++) {
+            let star = BABYLON.MeshBuilder.CreateSphere("sphere", {
+                diameter: Config.stars.diameter
+            }, this.scene);
 
-    render() {
-        return (
-            <canvas style={ Config.stars.styles } id="stars"></canvas>
-        );
+            let starMaterial = new BABYLON.StandardMaterial("myMaterial", this.scene);
+
+            starMaterial.emissiveColor = new BABYLON.Color3.FromHexString(Utils.getRandomPaletteColor());
+
+            star.position = new BABYLON.Vector3(Math.random(Config.stars.minPos, Config.stars.maxPos), Math.random(Config.stars.minPos, Config.stars.maxPos), Math.random(Config.stars.minPos, Config.stars.maxPos));
+
+            star.material = starMaterial;
+
+            this.stars.push(star);
+        }
     }
 }
 
