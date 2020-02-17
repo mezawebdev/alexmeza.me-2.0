@@ -47,7 +47,7 @@ export default {
         }
     },
     stars: {
-        enabled: true,
+        enabled: false,
         amount: 500,
         diameter: 0.005,
         minPos: -10,
@@ -67,7 +67,7 @@ export default {
             z: 0.1
         },
         walk: true,
-        walkSpeed: 0.01
+        walkSpeed: 0.001
     },
     effects: {
         enabled: true,
@@ -81,21 +81,40 @@ export default {
         }
     },
     ground: {
-        enabled: true,
-        heightMap: "images/height_map5.png",
-        width: 15,
-        height: 15,
-        textureHeight: 0,
-        subdivisions: 2,
-        rotation: 0.7854,
-        x: 3,
-        z: 3,
-        grid: {
-            mainColor: new BABYLON.Color3.FromHexString("#000000"),
-            lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
-            gridRatio: 0.1,
-            majorUnitFrequency: 1,
-            opacity: 1
+        type: "static",
+        static: {
+            heightMap: "images/height_map5.png",
+            width: 15,
+            height: 15,
+            textureHeight: 0,
+            subdivisions: 2,
+            rotation: 0.7854,
+            x: 3,
+            z: 3,
+            grid: {
+                mainColor: new BABYLON.Color3.FromHexString("#000000"),
+                lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
+                gridRatio: 0.1,
+                majorUnitFrequency: 1,
+                opacity: 1
+            }
+        },
+        dynamic: {
+            heightMap: "images/height_map5.png",
+            width: 15,
+            height: 15,
+            textureHeight: 0,
+            subdivisions: 2,
+            rotation: 0.7854,
+            x: 3,
+            z: 3,
+            grid: {
+                mainColor: new BABYLON.Color3.FromHexString("#000000"),
+                lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
+                gridRatio: 0.1,
+                majorUnitFrequency: 1,
+                opacity: 1
+            }
         }
     },
     mountains: {

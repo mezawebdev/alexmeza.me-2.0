@@ -43,7 +43,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 6,
+      "id": 5,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -73,14 +73,14 @@
       "publicPath": "static/chunks/1.js"
     },
     {
-      "id": "./components/World/Effects.js",
-      "name": "./components/World/Effects.js",
+      "id": "./components/World/DynamicGround.js",
+      "name": "./components/World/DynamicGround.js",
       "file": "static/chunks/1.js",
       "publicPath": "static/chunks/1.js"
     },
     {
-      "id": "./components/World/Ground.js",
-      "name": "./components/World/Ground.js",
+      "id": "./components/World/Effects.js",
+      "name": "./components/World/Effects.js",
       "file": "static/chunks/1.js",
       "publicPath": "static/chunks/1.js"
     },
@@ -99,6 +99,12 @@
     {
       "id": "./components/World/Stars.js",
       "name": "./components/World/Stars.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/World/StaticGround.js",
+      "name": "./components/World/StaticGround.js",
       "file": "static/chunks/1.js",
       "publicPath": "static/chunks/1.js"
     },

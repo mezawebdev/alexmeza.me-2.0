@@ -21,6 +21,8 @@ class Camera {
                     new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z), 
                     this.scene
                 );
+
+                this.camera.setTarget(new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z));
             break;
             case "arc":
                 this.camera = new BABYLON.ArcRotateCamera(

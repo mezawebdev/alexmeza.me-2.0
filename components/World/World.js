@@ -1,6 +1,6 @@
 import React from "react";
 import Config from "./Config";
-import Ground from "./Ground";
+import StaticGround from "./StaticGround";
 import Mountains from "./Mountains";
 import Camera from "./Camera";
 import Light from "./Light";
@@ -9,6 +9,7 @@ import Effects from "./Effects";
 import Stars from "./Stars";
 import Backgrounds from "./Backgrounds";
 import Controls from "./Controls";
+import DynamicGround from "./DynamicGround";
 
 class World extends React.Component {
     constructor(props) {
@@ -32,8 +33,10 @@ class World extends React.Component {
         this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
         this.light = new Light(this.scene);
 
-        if (Config.ground.enabled) {
-            this.ground = new Ground(this.scene);
+        if (Config.ground.type === "static") {
+            this.staticGround = new StaticGround(this.scene);
+        } else if (Config.ground.type === "dynamic") {
+            this.dynamicGround = new DynamicGround(this.scene);
         }
 
         if (Config.mountains.enabled) {
@@ -70,6 +73,7 @@ class World extends React.Component {
 
         this.engine.runRenderLoop(() => { 
             this.scene.render();
+            this.controls.update();
         });
     }
 

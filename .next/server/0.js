@@ -117,6 +117,7 @@ class Camera {
     switch (_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.type) {
       case "free":
         this.camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialPosition.z), this.scene);
+        this.camera.setTarget(new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.initialTarget.z));
         break;
 
       case "arc":
@@ -191,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   stars: {
-    enabled: true,
+    enabled: false,
     amount: 500,
     diameter: 0.005,
     minPos: -10,
@@ -211,7 +212,7 @@ __webpack_require__.r(__webpack_exports__);
       z: 0.1
     },
     walk: true,
-    walkSpeed: 0.01
+    walkSpeed: 0.001
   },
   effects: {
     enabled: true,
@@ -225,21 +226,40 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   ground: {
-    enabled: true,
-    heightMap: "images/height_map5.png",
-    width: 15,
-    height: 15,
-    textureHeight: 0,
-    subdivisions: 2,
-    rotation: 0.7854,
-    x: 3,
-    z: 3,
-    grid: {
-      mainColor: new BABYLON.Color3.FromHexString("#000000"),
-      lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
-      gridRatio: 0.1,
-      majorUnitFrequency: 1,
-      opacity: 1
+    type: "static",
+    static: {
+      heightMap: "images/height_map5.png",
+      width: 15,
+      height: 15,
+      textureHeight: 0,
+      subdivisions: 2,
+      rotation: 0.7854,
+      x: 3,
+      z: 3,
+      grid: {
+        mainColor: new BABYLON.Color3.FromHexString("#000000"),
+        lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
+        gridRatio: 0.1,
+        majorUnitFrequency: 1,
+        opacity: 1
+      }
+    },
+    dynamic: {
+      heightMap: "images/height_map5.png",
+      width: 15,
+      height: 15,
+      textureHeight: 0,
+      subdivisions: 2,
+      rotation: 0.7854,
+      x: 3,
+      z: 3,
+      grid: {
+        mainColor: new BABYLON.Color3.FromHexString("#000000"),
+        lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
+        gridRatio: 0.1,
+        majorUnitFrequency: 1,
+        opacity: 1
+      }
     }
   },
   mountains: {
@@ -293,14 +313,81 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+
+
 class Controls {
   constructor(world) {
     this.world = world;
   }
 
+  update() {
+    console.log(this.world.camera.camera); // Camera
+
+    this.world.camera.camera.position.x += _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.walkSpeed;
+    this.world.camera.camera.position.z += _Config__WEBPACK_IMPORTED_MODULE_0__["default"].camera.walkSpeed;
+  }
+
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Controls);
+
+/***/ }),
+
+/***/ "./components/World/DynamicGround.js":
+/*!*******************************************!*\
+  !*** ./components/World/DynamicGround.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+
+
+class DynamicGround {
+  constructor(scene) {
+    this.scene = scene;
+    let mapSubX = 100,
+        mapSubZ = 100,
+        mapData = new Float32Array(mapSubX * mapSubZ * 3);
+
+    for (var l = 0; l < mapSubZ; l++) {
+      for (var w = 0; w < mapSubX; w++) {
+        mapData[3 * (l * mapSubX + w)] = (w - mapSubX * 0.0) * 1.0;
+        mapData[3 * (l * mapSubX + w) + 1] = w / (l + 1) * Math.sin(l / 1) * Math.cos(w / 1) * 1.0;
+        mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.0) * 1.0;
+      }
+    }
+
+    var params = {
+      mapData: mapData,
+      mapSubX: mapSubX,
+      mapSubZ: mapSubZ,
+      terrainSub: 200
+    };
+    this.ground = new BABYLON.DynamicTerrain("terrain", params, this.scene); // this.ground.subToleranceX = 16;
+    // this.ground.subToleranceZ = 16;
+    // this.ground.LODLimits = [4, 3, 2, 1, 1];
+
+    this.setMaterial();
+  }
+
+  setMaterial() {
+    this.gridMaterial = new BABYLON.GridMaterial("gridMaterial", this.scene);
+    this.gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.dynamic.grid.mainColor;
+    this.gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.dynamic.grid.lineColor;
+    this.gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.dynamic.grid.gridRatio;
+    this.gridMaterial.backFaceCulling = false;
+    this.gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.dynamic.grid.majorUnitFrequency;
+    this.gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.dynamic.grid.opacity;
+    this.ground.mesh.material = this.gridMaterial;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (DynamicGround);
 
 /***/ }),
 
@@ -340,88 +427,6 @@ class Effects {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Effects);
-
-/***/ }),
-
-/***/ "./components/World/Ground.js":
-/*!************************************!*\
-  !*** ./components/World/Ground.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-
-
-class Ground {
-  constructor(scene) {
-    this.scene = scene;
-    this.createGround(); // this.createDynamicTerrain();
-
-    this.setMaterial();
-  }
-
-  createGround() {
-    // this.defaultGround = new BABYLON.Mesh.CreateGroundFromHeightMap(
-    //     "ground", 
-    //     Config.ground.heightMap, 
-    //     Config.ground.width, 
-    //     Config.ground.height, 
-    //     Config.ground.subdivisions, 
-    //     0, 
-    //     Config.ground.textureHeight, 
-    //     this.scene, 
-    //     true
-    // );
-    this.defaultGround = new BABYLON.MeshBuilder.CreateGround("ground", {
-      width: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.width,
-      height: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.height
-    });
-    this.defaultGround.rotate(BABYLON.Axis.Y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.rotation, BABYLON.Space.WORLD);
-    this.defaultGround.position.x = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.x;
-    this.defaultGround.position.z = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.z;
-  }
-
-  createDynamicTerrain() {
-    let mapSubX = 500,
-        mapSubZ = 500,
-        mapData = new Float32Array(mapSubX * mapSubZ * 3); // for (var l = 0; l < mapSubZ; l++) {           
-    //     for (var w = 0; w < mapSubX; w++) {                
-    //         mapData[3 *(l * mapSubX + w)] = (w - mapSubX * 0.5) * 2.0;
-    //         mapData[3 * (l * mapSubX + w) + 1] = w / (l +1) * Math.sin(l / 2) * Math.cos(w / 2) * 2.0;
-    //         mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.5) * 2.0;
-    //    }            
-    // }
-
-    var params = {
-      mapData: mapData,
-      mapSubX: mapSubX,
-      mapSubZ: mapSubZ,
-      terrainSub: 200
-    };
-    this.terrain = new BABYLON.DynamicTerrain("terrain", params, this.scene);
-    this.terrain.subToleranceX = 16;
-    this.terrain.subToleranceZ = 16;
-    this.terrain.LODLimits = [4, 3, 2, 1, 1];
-    this.terrainCreated = true;
-  }
-
-  setMaterial() {
-    this.gridMaterial = new BABYLON.GridMaterial("gridMaterial", this.scene);
-    this.gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.mainColor;
-    this.gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.lineColor;
-    this.gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.gridRatio;
-    this.gridMaterial.backFaceCulling = false;
-    this.gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.majorUnitFrequency;
-    this.gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.grid.opacity;
-    this.defaultGround.material = this.gridMaterial; // this.terrain.mesh.material = this.gridMaterial;
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Ground);
 
 /***/ }),
 
@@ -533,6 +538,52 @@ class Stars {
 
 /***/ }),
 
+/***/ "./components/World/StaticGround.js":
+/*!******************************************!*\
+  !*** ./components/World/StaticGround.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+
+
+class StaticGround {
+  constructor(scene) {
+    this.scene = scene;
+    this.createGround();
+    this.setMaterial();
+  }
+
+  createGround() {
+    this.defaultGround = new BABYLON.MeshBuilder.CreateGround("ground", {
+      width: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.width,
+      height: _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.height
+    });
+    this.defaultGround.rotate(BABYLON.Axis.Y, _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.rotation, BABYLON.Space.WORLD);
+    this.defaultGround.position.x = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.x;
+    this.defaultGround.position.z = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.z;
+  }
+
+  setMaterial() {
+    this.gridMaterial = new BABYLON.GridMaterial("gridMaterial", this.scene);
+    this.gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.grid.mainColor;
+    this.gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.grid.lineColor;
+    this.gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.grid.gridRatio;
+    this.gridMaterial.backFaceCulling = false;
+    this.gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.grid.majorUnitFrequency;
+    this.gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_0__["default"].ground.static.grid.opacity;
+    this.defaultGround.material = this.gridMaterial;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (StaticGround);
+
+/***/ }),
+
 /***/ "./components/World/Utils.js":
 /*!***********************************!*\
   !*** ./components/World/Utils.js ***!
@@ -592,7 +643,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
-/* harmony import */ var _Ground__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ground */ "./components/World/Ground.js");
+/* harmony import */ var _StaticGround__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StaticGround */ "./components/World/StaticGround.js");
 /* harmony import */ var _Mountains__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Mountains */ "./components/World/Mountains.js");
 /* harmony import */ var _Camera__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Camera */ "./components/World/Camera.js");
 /* harmony import */ var _Light__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Light */ "./components/World/Light.js");
@@ -601,8 +652,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Stars__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Stars */ "./components/World/Stars.js");
 /* harmony import */ var _Backgrounds__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Backgrounds */ "./components/World/Backgrounds.js");
 /* harmony import */ var _Controls__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Controls */ "./components/World/Controls.js");
+/* harmony import */ var _DynamicGround__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./DynamicGround */ "./components/World/DynamicGround.js");
 var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/components/World/World.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -637,8 +690,10 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
     this.light = new _Light__WEBPACK_IMPORTED_MODULE_5__["default"](this.scene);
 
-    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.enabled) {
-      this.ground = new _Ground__WEBPACK_IMPORTED_MODULE_2__["default"](this.scene);
+    if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.type === "static") {
+      this.staticGround = new _StaticGround__WEBPACK_IMPORTED_MODULE_2__["default"](this.scene);
+    } else if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].ground.type === "dynamic") {
+      this.dynamicGround = new _DynamicGround__WEBPACK_IMPORTED_MODULE_11__["default"](this.scene);
     }
 
     if (_Config__WEBPACK_IMPORTED_MODULE_1__["default"].mountains.enabled) {
@@ -672,6 +727,7 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     });
     this.engine.runRenderLoop(() => {
       this.scene.render();
+      this.controls.update();
     });
   }
 
@@ -679,13 +735,13 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 82
       },
       __self: this
     }, __jsx(_Backgrounds__WEBPACK_IMPORTED_MODULE_9__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 83
       },
       __self: this
     }), __jsx("canvas", {
@@ -694,7 +750,7 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       ref: this.canvas,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 84
       },
       __self: this
     }));
