@@ -19,8 +19,24 @@ export default {
             position: "fixed"
         }
     },
-    controls: {
-        enabled: true
+    lights: {
+        enabled: true,
+        all: []
+    },
+    consciousness: {
+        enabled: true,
+        walkSpeed: 0.003,
+        garbage: {
+            horizontalLines: {
+                disposalInterval: 2500
+            }
+        },
+        creation: {
+            horizontalLines: {
+                creationInterval: 2500,
+                amount: 5
+            }
+        }
     },
     backgrounds: {
         style: {
@@ -54,7 +70,7 @@ export default {
         maxPos: 50
     },
     camera: {
-        type: "arc",
+        type: "free",
         maxZ: 10,
         initialPosition: {
             x: -0.11,
@@ -64,15 +80,16 @@ export default {
         initialTarget: {
             x: 0.1,
             y: 0.075,
-            z: 0.1
+            z: 0.1,
+            diameter: 0.01
         },
         walk: true,
-        walkSpeed: 0.001
+        walkSpeed: 0.005
     },
     effects: {
         enabled: true,
         glow: {
-            intensity: 3
+            intensity: 1
         },
         fog: {
             enabled: false,
@@ -81,7 +98,7 @@ export default {
         }
     },
     ground: {
-        type: "static",
+        type: "none",
         static: {
             heightMap: "images/height_map5.png",
             width: 15,
@@ -96,7 +113,7 @@ export default {
                 lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
                 gridRatio: 0.1,
                 majorUnitFrequency: 1,
-                opacity: 1
+                opacity: 0.99
             }
         },
         dynamic: {
@@ -117,8 +134,16 @@ export default {
             }
         }
     },
+    grid: {
+        verticalLinesAmount: 100,
+        horizontalLinesAmount: 215,
+        color: new BABYLON.Color3.FromHexString("#F706CF"),
+        frequency: 0.05,
+        diameter: 0.001,
+        height: 10
+    },
     mountains: {
-        enabled: false,
+        enabled: true,
         meshes: [
             {
                 heightMap: "images/height_map5.png",
@@ -138,24 +163,37 @@ export default {
                     opacity: 1
                 }
             },
-            {
-                heightMap: "images/height_map8.png",
-                width: 2,
-                height: 5,
-                textureHeight: 0.5,
-                subdivisions: 20,
-                rotation: 0.785,
-                x: 3,
-                z: 3,
-                y: -0.1,
-                grid: {
-                    mainColor: new BABYLON.Color3.FromHexString("#000000"),
-                    lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
-                    gridRatio: 0.2,
-                    majorUnitFrequency: 1,
-                    opacity: 1
-                }
-            }
+            // {
+            //     heightMap: "images/height_map8.png",
+            //     width: 2,
+            //     height: 5,
+            //     textureHeight: 0.5,
+            //     subdivisions: 20,
+            //     rotation: 0.785,
+            //     x: 3,
+            //     z: 3,
+            //     y: -0.1,
+            //     grid: {
+            //         mainColor: new BABYLON.Color3.FromHexString("#000000"),
+            //         lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
+            //         gridRatio: 0.2,
+            //         majorUnitFrequency: 1,
+            //         opacity: 1
+            //     }
+            // }
         ]
-    }
+    },
+    planes: [
+        {
+            enabled: true,
+            followCamera: true,
+            width: 15,
+            height: 15,
+            y: -0.01,
+            rotation: 0.7854,
+            material: {
+                color: new BABYLON.Color3.FromHexString("#000000")
+            }
+        }
+    ]
 }

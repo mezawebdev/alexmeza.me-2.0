@@ -1,5 +1,47 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
 
+/***/ "./assets/js/injector.js":
+/*!*******************************!*\
+  !*** ./assets/js/injector.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Injector = {
+  init: function init() {
+    Array.prototype.last = function () {
+      return this[this.length - 1];
+    };
+
+    Array.prototype.first = function () {
+      return this[0];
+    };
+
+    Array.prototype.sliceFirst = function () {
+      this.slice(0, 1);
+    };
+
+    Array.prototype.isInArray = function (item) {
+      for (var i = 0; i < this.length; i++) {
+        if (item === this[i]) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    Array.prototype.sliceLast = function () {
+      this.slice[(this.length - 1, 1)];
+    };
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Injector);
+
+/***/ }),
+
 /***/ "./components/Navigation/Navigation.js":
 /*!*********************************************!*\
   !*** ./components/Navigation/Navigation.js ***!
@@ -25,7 +67,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/components/Navigation/Navigation.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/components/Navigation/Navigation.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
@@ -114,12 +156,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../assets/scss/global.scss */ "./assets/scss/global.scss");
 /* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _assets_js_injector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../assets/js/injector */ "./assets/js/injector.js");
 
 
 
 
 
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/layouts/default.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/layouts/default.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 // SSR Components
 
@@ -127,7 +170,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
 
- // No SSR Components
+
+
+_assets_js_injector__WEBPACK_IMPORTED_MODULE_11__["default"].init(); // No SSR Components
 
 var World = next_dynamic__WEBPACK_IMPORTED_MODULE_7___default()(function () {
   return Promise.all(/*! import() */[__webpack_require__.e("styles"), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ../components/World/World */ "./components/World/World.js"));
@@ -159,19 +204,19 @@ function (_React$Component) {
         id: "layout-default",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 18
         },
         __self: this
       }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_8___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 19
         },
         __self: this
       }, __jsx("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 20
         },
         __self: this
       }, "ALEX MEZA | Web Developer"), __jsx("meta", {
@@ -180,34 +225,34 @@ function (_React$Component) {
         key: "viewport",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 21
         },
         __self: this
       }), __jsx("script", {
-        src: "https://cdn.babylonjs.com/babylon.js",
+        src: "/js/vendor/babylon.js",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 25
         },
         __self: this
       }), __jsx("script", {
-        src: "https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js",
+        src: "/js/vendor/babylonjs.materials.min.js",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 26
         },
         __self: this
       }), __jsx("script", {
         src: "/js/vendor/babylon.dynamicTerrain.min.js",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 27
         },
         __self: this
       })), __jsx(World, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 29
         },
         __self: this
       }), this.props.children);
@@ -5219,10 +5264,10 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js!./":
-/*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js ***!
-  \*********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js!./":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11559,7 +11604,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
@@ -11603,13 +11648,13 @@ function (_React$Component) {
 /***/ }),
 
 /***/ 1:
-/*!*************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js ***!
-  \*************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js ***!
+  \***********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%2Fpages%2Findex.js!./");
 
 
 /***/ }),

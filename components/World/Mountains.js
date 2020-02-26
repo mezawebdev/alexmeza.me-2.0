@@ -3,13 +3,14 @@ import Config from "./Config";
 class Mountains {
     constructor(scene) {
         this.scene = scene;
+        this.mountains = [];
         this.createMountains();
         this.setMaterials();
     }
 
     createMountains() {
         Config.mountains.meshes.forEach(mountain => {
-            mountain.mesh = new BABYLON.Mesh.CreateGroundFromHeightMap(
+            let mesh = new BABYLON.Mesh.CreateGroundFromHeightMap(
                 `ground-${ Math.round(Math.random() * 100) }`, 
                 mountain.heightMap, 
                 mountain.width, 
@@ -21,15 +22,19 @@ class Mountains {
                 true
             );
 
-            mountain.mesh.rotate(BABYLON.Axis.Y, mountain.rotation, BABYLON.Space.WORLD);
-            mountain.mesh.position.x = mountain.x;
-            mountain.mesh.position.z = mountain.z;
-            mountain.mesh.position.y = mountain.y;
+            mesh.rotate(BABYLON.Axis.Y, mountain.rotation, BABYLON.Space.WORLD);
+            mesh.position.x = mountain.x;
+            mesh.position.z = mountain.z;
+            mesh.position.y = mountain.y;
+
+            mesh.grid = mountain.grid;
+
+            this.mountains.push(mesh);
         });
     }
 
     setMaterials() {
-        Config.mountains.meshes.forEach(mountain => {
+        this.mountains.forEach(mountain => {
             let gridMaterial = new BABYLON.GridMaterial(`gridMaterial-${ Math.round(Math.random() * 100) }`, this.scene);
 
             gridMaterial.mainColor = mountain.grid.mainColor;
@@ -38,7 +43,7 @@ class Mountains {
             gridMaterial.backFaceCulling = false;
             gridMaterial.majorUnitFrequency = mountain.grid.majorUnitFrequency;
             gridMaterial.opacity = mountain.grid.opacity;
-            mountain.mesh.material = gridMaterial;
+            mountain.material = gridMaterial;
         });
     }
 }

@@ -21,7 +21,7 @@ class Camera {
                     new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z), 
                     this.scene
                 );
-
+                this.createTarget();
                 this.camera.setTarget(new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z));
             break;
             case "arc":
@@ -49,13 +49,15 @@ class Camera {
     }
 
     createTarget() {
-        this.camera.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
-            diameter: 0.01
+        this.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
+            diameter: Config.camera.initialTarget.diameter
         });
 
-        this.camera.targetSphere.position = new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z);
+        this.targetSphere.position = new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z);
 
-        this.camera.lockedTarget = this.camera.targetSphere;
+        if (Config.camera.type === "arc") {
+            this.camera.lockedTarget = this.targetSphere;
+        }
 
         this.camera.position = new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z);
     }

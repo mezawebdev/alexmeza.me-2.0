@@ -126,6 +126,49 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./assets/js/injector.js":
+/*!*******************************!*\
+  !*** ./assets/js/injector.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const Injector = {
+  init() {
+    Array.prototype.last = function () {
+      return this[this.length - 1];
+    };
+
+    Array.prototype.first = function () {
+      return this[0];
+    };
+
+    Array.prototype.sliceFirst = function () {
+      this.slice(0, 1);
+    };
+
+    Array.prototype.isInArray = function (item) {
+      for (let i = 0; i < this.length; i++) {
+        if (item === this[i]) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    Array.prototype.sliceLast = function () {
+      this.slice[(this.length - 1, 1)];
+    };
+  }
+
+};
+/* harmony default export */ __webpack_exports__["default"] = (Injector);
+
+/***/ }),
+
 /***/ "./assets/scss/global.scss":
 /*!*********************************!*\
   !*** ./assets/scss/global.scss ***!
@@ -163,7 +206,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Navigation_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navigation.scss */ "./components/Navigation/Navigation.scss");
 /* harmony import */ var _Navigation_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Navigation_scss__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/components/Navigation/Navigation.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/components/Navigation/Navigation.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -244,7 +287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/scss/global.scss */ "./assets/scss/global.scss");
 /* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/layouts/default.js";
+/* harmony import */ var _assets_js_injector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/js/injector */ "./assets/js/injector.js");
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/layouts/default.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 // SSR Components
 
@@ -252,7 +296,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
- // No SSR Components
+
+
+_assets_js_injector__WEBPACK_IMPORTED_MODULE_6__["default"].init(); // No SSR Components
 
 const World = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(() => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/World/World */ "./components/World/World.js")), {
   ssr: false,
@@ -268,19 +314,19 @@ class Default extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       id: "layout-default",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 18
       },
       __self: this
     }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 19
       },
       __self: this
     }, __jsx("title", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 20
       },
       __self: this
     }, "ALEX MEZA | Web Developer"), __jsx("meta", {
@@ -289,34 +335,34 @@ class Default extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       key: "viewport",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 21
       },
       __self: this
     }), __jsx("script", {
-      src: "https://cdn.babylonjs.com/babylon.js",
+      src: "/js/vendor/babylon.js",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 25
       },
       __self: this
     }), __jsx("script", {
-      src: "https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js",
+      src: "/js/vendor/babylonjs.materials.min.js",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 26
       },
       __self: this
     }), __jsx("script", {
       src: "/js/vendor/babylon.dynamicTerrain.min.js",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 27
       },
       __self: this
     })), __jsx(World, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 29
       },
       __self: this
     }), this.props.children);
@@ -2011,7 +2057,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _layouts_default__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/default */ "./layouts/default.js");
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2047,7 +2093,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/RescueAMeza_SD/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js */"./pages/index.js");
 
 
 /***/ }),
