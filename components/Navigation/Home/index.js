@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import App from "../../../app.config";
+import HomeMenu from "../../HomeMenu";
 import "./styles.scss";
+
 
 class HomeNavigation extends React.Component {
     constructor(props) {
@@ -12,7 +14,7 @@ class HomeNavigation extends React.Component {
         return (
             <div 
                 id="home-navigation"
-                className={this.props.type}>
+                className={ this.props.type }>
                 <div className={`${ this.props.type } background`}></div>
                 <div className={`${ this.props.type } name`}>
                     <span className={`${ this.props.type } text-3d header`}>
@@ -58,6 +60,7 @@ class HomeNavigation extends React.Component {
                         })
                     }
                 </div>
+                <HomeMenu />
             </div>
         )
     }

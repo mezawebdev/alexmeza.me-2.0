@@ -191,6 +191,17 @@ const Injector = {
 
 /***/ }),
 
+/***/ "./assets/scss/settings.scss":
+/*!***********************************!*\
+  !*** ./assets/scss/settings.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js ***!
@@ -498,21 +509,28 @@ function createUrl(router) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyApp; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/scss/reset.scss */ "./assets/scss/reset.scss");
-/* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/scss/global.scss */ "./assets/scss/global.scss");
-/* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _assets_js_injector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/js/injector */ "./assets/js/injector.js");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/head */ "next/head");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _assets_scss_settings_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/scss/settings.scss */ "./assets/scss/settings.scss");
+/* harmony import */ var _assets_scss_settings_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_settings_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/scss/reset.scss */ "./assets/scss/reset.scss");
+/* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/scss/global.scss */ "./assets/scss/global.scss");
+/* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _assets_js_injector__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/js/injector */ "./assets/js/injector.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next-page-transitions */ "next-page-transitions");
+/* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_page_transitions__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/pages/_app.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -523,20 +541,22 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-_assets_js_injector__WEBPACK_IMPORTED_MODULE_5__["default"].init();
+
+
+_assets_js_injector__WEBPACK_IMPORTED_MODULE_7__["default"].init();
 
 const Noop = ({
   children
 }) => children;
 
-const World = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(() => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/World/World */ "./components/World/World.js")), {
+const World = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(() => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/World/World */ "./components/World/World.js")), {
   ssr: false,
   loadableGenerated: {
     webpack: () => [/*require.resolve*/(/*! ../components/World/World */ "./components/World/World.js")],
     modules: ["../components/World/World"]
   }
 });
-class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
   render() {
     const {
       Component,
@@ -544,70 +564,89 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     } = this.props;
     const Layout = Component.Layout || Noop;
     return __jsx(Layout, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
-    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_6___default.a, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }, __jsx("title", {
+      className: "jsx-2587753202",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 22
+      },
+      __self: this
+    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }, __jsx("title", {
+      className: "jsx-2587753202",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
       },
       __self: this
     }, "ALEX MEZA | Web Developer"), __jsx("meta", {
       name: "viewport",
       content: "initial-scale=1.0, width=device-width",
       key: "viewport",
+      className: "jsx-2587753202",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 25
       },
       __self: this
     }), __jsx("script", {
       src: "https://code.jquery.com/pep/0.4.3/pep.js",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    }), __jsx("script", {
-      src: "/js/vendor/babylon.max.js",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28
-      },
-      __self: this
-    }), __jsx("script", {
-      src: "/js/vendor/babylon.meshwriter.min.js",
+      className: "jsx-2587753202",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29
       },
       __self: this
     }), __jsx("script", {
-      src: "/js/vendor/babylonjs.materials.min.js",
+      src: "/js/vendor/babylon.max.js",
+      className: "jsx-2587753202",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30
       },
       __self: this
-    })), __jsx(Component, _extends({}, pageProps, {
+    }), __jsx("script", {
+      src: "/js/vendor/babylon.meshwriter.min.js",
+      className: "jsx-2587753202",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }), __jsx("script", {
+      src: "/js/vendor/babylonjs.materials.min.js",
+      className: "jsx-2587753202",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 32
       },
       __self: this
-    })), __jsx(World, {
+    })), __jsx(next_page_transitions__WEBPACK_IMPORTED_MODULE_9__["PageTransition"], {
+      timeout: 300,
+      classNames: "page-transition",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 34
+      },
+      __self: this
+    }, __jsx(Component, _extends({}, pageProps, {
+      className: "jsx-2587753202" + " " + (pageProps && pageProps.className != null && pageProps.className || ""),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37
+      },
+      __self: this
+    }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      id: "2587753202",
+      __self: this
+    }, ".page-transition-enter{opacity:0;}.page-transition-enter-active{opacity:1;-webkit-transition:opacity 300ms;transition:opacity 300ms;}.page-transition-exit{opacity:1;}.page-transition-exit-active{opacity:0;-webkit-transition:opacity 300ms;transition:opacity 300ms;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9SZXNjdWVBTWV6YV9TRC9EZXNrdG9wL0Rlc2t0b3AvbWV6YVdlYkxhYi9QZXJzb25hbC9hbGV4bWV6YS5tZSBWZXJzaW9uIDIvcGFnZXMvX2FwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFzQ21DLEFBR21DLEFBR0EsQUFJQSxBQUdBLFVBVGQsQUFHNkIsQUFJN0IsQUFHNkIsMERBTjdCLEFBT0EiLCJmaWxlIjoiL1VzZXJzL1Jlc2N1ZUFNZXphX1NEL0Rlc2t0b3AvRGVza3RvcC9tZXphV2ViTGFiL1BlcnNvbmFsL2FsZXhtZXphLm1lIFZlcnNpb24gMi9wYWdlcy9fYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IEFwcCBmcm9tIFwibmV4dC9hcHBcIjtcbmltcG9ydCBkeW5hbWljIGZyb20gXCJuZXh0L2R5bmFtaWNcIjtcbmltcG9ydCBcIi4uL2Fzc2V0cy9zY3NzL3NldHRpbmdzLnNjc3NcIjtcbmltcG9ydCBcIi4uL2Fzc2V0cy9zY3NzL3Jlc2V0LnNjc3NcIjtcbmltcG9ydCBcIi4uL2Fzc2V0cy9zY3NzL2dsb2JhbC5zY3NzXCI7XG5pbXBvcnQgSW5qZWN0b3IgZnJvbSBcIi4uL2Fzc2V0cy9qcy9pbmplY3RvclwiO1xuaW1wb3J0IEhlYWQgZnJvbSBcIm5leHQvaGVhZFwiO1xuaW1wb3J0IHsgUGFnZVRyYW5zaXRpb24gfSBmcm9tIFwibmV4dC1wYWdlLXRyYW5zaXRpb25zXCI7XG5cbkluamVjdG9yLmluaXQoKTtcblxuY29uc3QgTm9vcCA9ICh7IGNoaWxkcmVuIH0pID0+IGNoaWxkcmVuO1xuY29uc3QgV29ybGQgPSBkeW5hbWljKCgpID0+IGltcG9ydChcIi4uL2NvbXBvbmVudHMvV29ybGQvV29ybGRcIiksIHsgc3NyOiBmYWxzZSB9KTtcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgTXlBcHAgZXh0ZW5kcyBBcHAge1xuICAgIHJlbmRlcigpIHtcbiAgICAgICAgY29uc3QgeyBDb21wb25lbnQsIHBhZ2VQcm9wcyB9ID0gdGhpcy5wcm9wc1xuICAgICAgICBjb25zdCBMYXlvdXQgPSBDb21wb25lbnQuTGF5b3V0IHx8IE5vb3BcblxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgPExheW91dD5cbiAgICAgICAgICAgICAgICA8SGVhZD5cbiAgICAgICAgICAgICAgICAgICAgPHRpdGxlPkFMRVggTUVaQSB8IFdlYiBEZXZlbG9wZXI8L3RpdGxlPlxuICAgICAgICAgICAgICAgICAgICA8bWV0YVxuICAgICAgICAgICAgICAgICAgICAgICAgbmFtZT1cInZpZXdwb3J0XCJcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRlbnQ9XCJpbml0aWFsLXNjYWxlPTEuMCwgd2lkdGg9ZGV2aWNlLXdpZHRoXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIGtleT1cInZpZXdwb3J0XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2NvZGUuanF1ZXJ5LmNvbS9wZXAvMC40LjMvcGVwLmpzXCI+PC9zY3JpcHQ+XG4gICAgICAgICAgICAgICAgICAgIDxzY3JpcHQgc3JjPVwiL2pzL3ZlbmRvci9iYWJ5bG9uLm1heC5qc1wiIC8+XG4gICAgICAgICAgICAgICAgICAgIDxzY3JpcHQgc3JjPVwiL2pzL3ZlbmRvci9iYWJ5bG9uLm1lc2h3cml0ZXIubWluLmpzXCI+PC9zY3JpcHQ+XG4gICAgICAgICAgICAgICAgICAgIDxzY3JpcHQgc3JjPVwiL2pzL3ZlbmRvci9iYWJ5bG9uanMubWF0ZXJpYWxzLm1pbi5qc1wiPjwvc2NyaXB0PlxuICAgICAgICAgICAgICAgIDwvSGVhZD5cbiAgICAgICAgICAgICAgICA8UGFnZVRyYW5zaXRpb24gXG4gICAgICAgICAgICAgICAgICAgIHRpbWVvdXQ9ezMwMH0gXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZXM9XCJwYWdlLXRyYW5zaXRpb25cIj5cbiAgICAgICAgICAgICAgICAgICAgPENvbXBvbmVudCB7Li4ucGFnZVByb3BzfSAvPlxuICAgICAgICAgICAgICAgIDwvUGFnZVRyYW5zaXRpb24+XG4gICAgICAgICAgICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICAgICAgICAgICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1lbnRlciB7XG4gICAgICAgICAgICAgICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZW50ZXItYWN0aXZlIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgICAgICAgICAgICAgICAgICB0cmFuc2l0aW9uOiBvcGFjaXR5IDMwMG1zO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZXhpdCB7XG4gICAgICAgICAgICAgICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZXhpdC1hY3RpdmUge1xuICAgICAgICAgICAgICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgICAgICAgICAgICAgICAgIHRyYW5zaXRpb246IG9wYWNpdHkgMzAwbXM7XG4gICAgICAgICAgICAgICAgICAgIH1gfVxuICAgICAgICAgICAgICAgIDwvc3R5bGU+XG4gICAgICAgICAgICAgICAgPFdvcmxkIC8+XG4gICAgICAgICAgICA8L0xheW91dD5cbiAgICAgICAgKVxuICAgIH1cbn1cbiJdfQ== */\n/*@ sourceURL=/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/pages/_app.js */"), __jsx(World, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
       },
       __self: this
     }));
@@ -626,6 +665,17 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
 
+
+/***/ }),
+
+/***/ "next-page-transitions":
+/*!****************************************!*\
+  !*** external "next-page-transitions" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-page-transitions");
 
 /***/ }),
 
@@ -659,6 +709,17 @@ module.exports = require("next/head");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-jsx/style":
+/*!***********************************!*\
+  !*** external "styled-jsx/style" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-jsx/style");
 
 /***/ }),
 

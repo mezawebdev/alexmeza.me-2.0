@@ -139,8 +139,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../app.config */ "./app.config.js");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles.scss */ "./components/Navigation/Home/styles.scss");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _HomeMenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../HomeMenu */ "./components/HomeMenu/index.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles.scss */ "./components/Navigation/Home/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -148,6 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/Navigation/Home/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
 
 
 
@@ -172,128 +174,116 @@ function (_React$Component) {
         className: this.props.type,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 15
         },
         __self: this
       }, __jsx("div", {
         className: "".concat(this.props.type, " background"),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 18
         },
         __self: this
       }), __jsx("div", {
         className: "".concat(this.props.type, " name"),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 19
         },
         __self: this
       }, __jsx("span", {
         className: "".concat(this.props.type, " text-3d header"),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 20
         },
         __self: this
       }, __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 22
         },
         __self: this
       }, "A"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 23
         },
         __self: this
       }, "L"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 24
         },
         __self: this
       }, "E"), __jsx("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23
-        },
-        __self: this
-      }, "X"), "\xA0", __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 25
         },
         __self: this
-      }, "M"), __jsx("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 26
-        },
-        __self: this
-      }, "E"), __jsx("span", {
+      }, "X"), "\xA0", __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 27
         },
         __self: this
-      }, "Z"), __jsx("span", {
+      }, "M"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 28
         },
         __self: this
-      }, "A")), __jsx("br", {
+      }, "E"), __jsx("span", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
+      }, "Z"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 30
+        },
+        __self: this
+      }, "A")), __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
         },
         __self: this
       }), __jsx("span", {
         className: "".concat(this.props.type, " text-3d subheader"),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 33
         },
         __self: this
       }, __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 35
         },
         __self: this
       }, "W"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 36
         },
         __self: this
       }, "E"), __jsx("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35
-        },
-        __self: this
-      }, "B"), "\xA0", __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 37
         },
         __self: this
-      }, "D"), __jsx("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      }, "E"), __jsx("span", {
+      }, "B"), "\xA0", __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
         },
         __self: this
-      }, "V"), __jsx("span", {
+      }, "D"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 40
@@ -305,35 +295,47 @@ function (_React$Component) {
           lineNumber: 41
         },
         __self: this
-      }, "L"), __jsx("span", {
+      }, "V"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 42
         },
         __self: this
-      }, "O"), __jsx("span", {
+      }, "E"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 43
         },
         __self: this
-      }, "P"), __jsx("span", {
+      }, "L"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 44
         },
         __self: this
-      }, "E"), __jsx("span", {
+      }, "O"), __jsx("span", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 45
+        },
+        __self: this
+      }, "P"), __jsx("span", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46
+        },
+        __self: this
+      }, "E"), __jsx("span", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 47
         },
         __self: this
       }, "R"))), __jsx("div", {
         className: "".concat(this.props.type, " menu"),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 50
         },
         __self: this
       }, _app_config__WEBPACK_IMPORTED_MODULE_7__["default"].navigation.items.map(function (value, i) {
@@ -342,17 +344,23 @@ function (_React$Component) {
           href: value.path,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 54
           },
           __self: this
         }, __jsx("button", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 57
           },
           __self: this
         }, value.text));
-      })));
+      })), __jsx(_HomeMenu__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        },
+        __self: this
+      }));
     }
   }]);
 
@@ -10460,10 +10468,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_default__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../layouts/default */ "./layouts/default/index.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _components_HomeMenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/HomeMenu */ "./components/HomeMenu/index.js");
-/* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../app.config */ "./app.config.js");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles.scss */ "./pages/styles.scss");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../app.config */ "./app.config.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles.scss */ "./pages/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -10473,14 +10480,14 @@ var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/al
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
-
+ // import HomeMenu from "../components/HomeMenu";
 
 
 
 var navigation = [];
 
-for (var i = 1; i < _app_config__WEBPACK_IMPORTED_MODULE_9__["default"].navigation.items.length; i++) {
-  navigation.push(_app_config__WEBPACK_IMPORTED_MODULE_9__["default"].navigation.items[i]);
+for (var i = 1; i < _app_config__WEBPACK_IMPORTED_MODULE_8__["default"].navigation.items.length; i++) {
+  navigation.push(_app_config__WEBPACK_IMPORTED_MODULE_8__["default"].navigation.items[i]);
 }
 
 var Home =
@@ -10505,13 +10512,7 @@ function (_React$Component) {
           lineNumber: 17
         },
         __self: this
-      }, __jsx(_components_HomeMenu__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20
-        },
-        __self: this
-      }));
+      });
     }
   }]);
 
@@ -10523,7 +10524,7 @@ Home.Layout = _layouts_default__WEBPACK_IMPORTED_MODULE_6__["default"];
 
 /***/ }),
 
-/***/ 5:
+/***/ 7:
 /*!*************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FRescueAMeza_SD%2FDesktop%2FDesktop%2FmezaWebLab%2FPersonal%2Falexmeza.me%20Version%202%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************************************/
@@ -10546,5 +10547,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[5,"static/runtime/webpack.js","styles"]]]);
+},[[7,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

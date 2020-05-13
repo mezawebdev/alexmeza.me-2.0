@@ -1,7 +1,7 @@
 import React from "react";
 import Default from "../layouts/default";
 import Link from "next/link";
-import HomeMenu from "../components/HomeMenu";
+// import HomeMenu from "../components/HomeMenu";
 import App from "../app.config";
 import "./styles.scss";
 
@@ -17,7 +17,7 @@ class Home extends React.Component {
             <div
                 className="page" 
                 id="home">
-                <HomeMenu />
+                {/* <HomeMenu /> */}
             </div>
         )
     }

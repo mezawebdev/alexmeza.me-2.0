@@ -1,3 +1,5 @@
+@import "../../../assets/scss/settings.scss";
+
 @keyframes lettermove1 {
     0% {
         transform : translateY(-0.1em);
@@ -37,8 +39,8 @@
         opacity    : 1;
         left       : 0px;
         top        : 0px;
-        transition : height 0.5s ease-in-out,
-                     opacity 0.5s ease-in-out;
+        transition : height $trans-dur ease-in-out,
+                     opacity $trans-dur ease-in-out;
 
         &.default {
             opacity : 0;
@@ -131,6 +133,8 @@
 
         .header {
             font-size   : 2em;
+            transition  : 
+                font-size $trans-dur ease-in-out;
             text-shadow : 
                 0px 1px 1px #919191,
                 0px 2px 1px #919191,
@@ -144,7 +148,9 @@
             font-size   : 1.25em;
             margin-top  : 8px;
             display     : block;
-            transition  : opacity 0.5s ease-in-out;
+            transition  : 
+                opacity $trans-dur ease-in-out,
+                height $trans-dur ease-in-out;
             text-shadow : 
                 0px 1px 1px #919191,
                 0px 2px 1px #919191,
@@ -157,6 +163,7 @@
 
             &.alt {
                 opacity : 0;
+                height  : 0px;
             }
         }
 
@@ -190,6 +197,6 @@
         font-size      : 0.8em;
         text-transform : uppercase;
         color          : white;
-        padding        : 5px 10px;
+        padding        : 5px 0px;
     }
 }

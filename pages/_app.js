@@ -1,10 +1,12 @@
 import React from "react";
 import App from "next/app";
 import dynamic from "next/dynamic";
+import "../assets/scss/settings.scss";
 import "../assets/scss/reset.scss";
 import "../assets/scss/global.scss";
 import Injector from "../assets/js/injector";
 import Head from "next/head";
+import { PageTransition } from "next-page-transitions";
 
 Injector.init();
 
@@ -29,7 +31,27 @@ export default class MyApp extends App {
                     <script src="/js/vendor/babylon.meshwriter.min.js"></script>
                     <script src="/js/vendor/babylonjs.materials.min.js"></script>
                 </Head>
-                <Component { ...pageProps } />
+                <PageTransition 
+                    timeout={300} 
+                    classNames="page-transition">
+                    <Component {...pageProps} />
+                </PageTransition>
+                <style jsx global>{`
+                    .page-transition-enter {
+                        opacity: 0;
+                    }
+                    .page-transition-enter-active {
+                        opacity: 1;
+                        transition: opacity 300ms;
+                    }
+                    .page-transition-exit {
+                        opacity: 1;
+                    }
+                    .page-transition-exit-active {
+                        opacity: 0;
+                        transition: opacity 300ms;
+                    }`}
+                </style>
                 <World />
             </Layout>
         )

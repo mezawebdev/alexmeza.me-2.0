@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap);
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -374,6 +375,37 @@ body {
     padding-top: 125px;
     padding-bottom: 50px; }
 
+#home-menu {
+  position: fixed;
+  bottom: 50px;
+  transform: translate(-50%, 0);
+  left: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px; }
+
+.button-ui {
+  background: none;
+  border: none;
+  padding: 0px 18px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  height: 35px;
+  color: #9affff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 3px 0px #2DE2E6); }
+  .button-ui .button-canvas {
+    position: absolute;
+    z-index: -1;
+    filter: drop-shadow(0px 4px 7px black); }
+  .button-ui span {
+    position: relative;
+    top: -1px;
+    font-weight: 100; }
+
 @keyframes lettermove1 {
   0% {
     transform: translateY(-0.1em); }
@@ -402,7 +434,7 @@ body {
     opacity: 1;
     left: 0px;
     top: 0px;
-    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out; }
+    transition: height 1s ease-in-out, opacity 1s ease-in-out; }
     #home-navigation .background.default {
       opacity: 0; }
     #home-navigation .background.home {
@@ -466,17 +498,19 @@ body {
         animation-delay: 1200ms; }
     #home-navigation .name .header {
       font-size: 2em;
+      transition: font-size 1s ease-in-out;
       text-shadow: 0px 1px 1px #919191, 0px 2px 1px #919191, 0px 3px 1px #919191, 0px 4px 1px #919191, 0px 5px 1px #919191, 0px 6px 1px #919191; }
     #home-navigation .name .subheader {
       font-size: 1.25em;
       margin-top: 8px;
       display: block;
-      transition: opacity 0.5s ease-in-out;
+      transition: opacity 1s ease-in-out, height 1s ease-in-out;
       text-shadow: 0px 1px 1px #919191, 0px 2px 1px #919191, 0px 3px 1px #919191, 0px 4px 1px #919191; }
       #home-navigation .name .subheader.home {
         opacity: 1; }
       #home-navigation .name .subheader.alt {
-        opacity: 0; }
+        opacity: 0;
+        height: 0px; }
     #home-navigation .name .text-3d {
       position: relative;
       text-transform: uppercase;
@@ -500,57 +534,13 @@ body {
     font-size: 0.8em;
     text-transform: uppercase;
     color: white;
-    padding: 5px 10px; }
+    padding: 5px 0px; }
 
 #layout-default {
   z-index: 10;
   position: relative;
   height: 100vh; }
 
-#home-menu {
-  position: fixed;
-  bottom: 50px;
-  transform: translate(-50%, 0);
-  left: 50%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px; }
-
-.button-ui {
-  background: none;
-  border: none;
-  padding: 0px 18px;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  height: 35px;
-  color: #9affff;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  filter: drop-shadow(0px 3px 0px #2DE2E6); }
-  .button-ui .button-canvas {
-    position: absolute;
-    z-index: -1;
-    filter: drop-shadow(0px 4px 7px black); }
-  .button-ui span {
-    position: relative;
-    top: -1px;
-    font-weight: 100; }
-
-
-
-.panel {
-  padding: 15px;
-  position: relative; }
-  .panel p {
-    color: white; }
-  .panel .panel-canvas {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    filter: drop-shadow(0px 4px 7px black); }
 
 
 #backgrounds {
