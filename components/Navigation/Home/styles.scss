@@ -145,10 +145,10 @@
         }
 
         .subheader {
-            font-size   : 1.25em;
-            margin-top  : 8px;
-            display     : block;
-            transition  : 
+            font-size  : 1.25em;
+            margin-top : 8px;
+            display    : block;
+            transition : 
                 opacity $trans-dur ease-in-out,
                 height $trans-dur ease-in-out;
             text-shadow : 
@@ -159,6 +159,7 @@
 
             &.home {
                 opacity : 1;
+                height  : 27px;
             }
 
             &.alt {
@@ -183,6 +184,7 @@
         margin-top            : 8px;
         z-index               : 5;
         position              : relative;
+        transition            : opacity $trans-dur ease-in-out;
 
         &.home {
             opacity        : 0;

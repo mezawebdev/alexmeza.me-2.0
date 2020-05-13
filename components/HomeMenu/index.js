@@ -13,11 +13,14 @@ for (let i = 1; i < App.navigation.items.length; i++) {
 class HomeMenu extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props);
     }
 
     render() {
         return (
-            <div id="home-menu">
+            <div 
+                className={this.props.type}
+                id="home-menu">
                 { 
                     Navigation.map((value, i) => {
                         return (

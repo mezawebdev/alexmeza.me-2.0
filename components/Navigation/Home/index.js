@@ -8,6 +8,7 @@ import "./styles.scss";
 class HomeNavigation extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props);
     }
 
     render() {
@@ -60,7 +61,7 @@ class HomeNavigation extends React.Component {
                         })
                     }
                 </div>
-                <HomeMenu />
+                <HomeMenu type={this.props.type} />
             </div>
         )
     }

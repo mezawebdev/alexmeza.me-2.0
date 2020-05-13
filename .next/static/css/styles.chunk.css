@@ -382,7 +382,11 @@ body {
   left: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px; }
+  grid-gap: 10px;
+  transition: opacity 1s ease-in-out; }
+  #home-menu.alt {
+    opacity: 0;
+    pointer-events: none; }
 
 .button-ui {
   background: none;
@@ -507,7 +511,8 @@ body {
       transition: opacity 1s ease-in-out, height 1s ease-in-out;
       text-shadow: 0px 1px 1px #919191, 0px 2px 1px #919191, 0px 3px 1px #919191, 0px 4px 1px #919191; }
       #home-navigation .name .subheader.home {
-        opacity: 1; }
+        opacity: 1;
+        height: 27px; }
       #home-navigation .name .subheader.alt {
         opacity: 0;
         height: 0px; }
@@ -523,7 +528,8 @@ body {
     grid-gap: 7px;
     margin-top: 8px;
     z-index: 5;
-    position: relative; }
+    position: relative;
+    transition: opacity 1s ease-in-out; }
     #home-navigation .menu.home {
       opacity: 0;
       pointer-events: none; }

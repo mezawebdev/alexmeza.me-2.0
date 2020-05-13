@@ -158,14 +158,16 @@ for (let i = 1; i < _app_config__WEBPACK_IMPORTED_MODULE_3__["default"].navigati
 class HomeMenu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
 
   render() {
     return __jsx("div", {
+      className: this.props.type,
       id: "home-menu",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 21
       },
       __self: this
     }, Navigation.map((value, i) => {
@@ -174,13 +176,13 @@ class HomeMenu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         href: value.path,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 27
         },
         __self: this
       }, __jsx(_UI_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 30
         },
         __self: this
       }, value.text));
@@ -232,6 +234,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 class HomeNavigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
 
   render() {
@@ -240,168 +243,168 @@ class HomeNavigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
       className: this.props.type,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 16
       },
       __self: this
     }, __jsx("div", {
       className: `${this.props.type} background`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 19
       },
       __self: this
     }), __jsx("div", {
       className: `${this.props.type} name`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 20
       },
       __self: this
     }, __jsx("span", {
       className: `${this.props.type} text-3d header`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 21
       },
       __self: this
     }, __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 23
       },
       __self: this
     }, "A"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 24
       },
       __self: this
     }, "L"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 25
       },
       __self: this
     }, "E"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 26
       },
       __self: this
     }, "X"), "\xA0", __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 28
       },
       __self: this
     }, "M"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 29
       },
       __self: this
     }, "E"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 30
       },
       __self: this
     }, "Z"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 31
       },
       __self: this
     }, "A")), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 33
       },
       __self: this
     }), __jsx("span", {
       className: `${this.props.type} text-3d subheader`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 34
       },
       __self: this
     }, __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 36
       },
       __self: this
     }, "W"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 37
       },
       __self: this
     }, "E"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 38
       },
       __self: this
     }, "B"), "\xA0", __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 40
       },
       __self: this
     }, "D"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, "E"), __jsx("span", {
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 41
       },
       __self: this
-    }, "V"), __jsx("span", {
+    }, "E"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 42
       },
       __self: this
-    }, "E"), __jsx("span", {
+    }, "V"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 43
       },
       __self: this
-    }, "L"), __jsx("span", {
+    }, "E"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 44
       },
       __self: this
-    }, "O"), __jsx("span", {
+    }, "L"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 45
       },
       __self: this
-    }, "P"), __jsx("span", {
+    }, "O"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 46
       },
       __self: this
-    }, "E"), __jsx("span", {
+    }, "P"), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 47
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 48
       },
       __self: this
     }, "R"))), __jsx("div", {
       className: `${this.props.type} menu`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 51
       },
       __self: this
     }, _app_config__WEBPACK_IMPORTED_MODULE_2__["default"].navigation.items.map((value, i) => {
@@ -410,20 +413,21 @@ class HomeNavigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
         href: value.path,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 55
         },
         __self: this
       }, __jsx("button", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 58
         },
         __self: this
       }, value.text));
     })), __jsx(_HomeMenu__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      type: this.props.type,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 64
       },
       __self: this
     }));
