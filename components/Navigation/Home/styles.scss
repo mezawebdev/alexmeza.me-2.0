@@ -1,0 +1,195 @@
+@keyframes lettermove1 {
+    0% {
+        transform : translateY(-0.1em);
+    }
+
+    100% {
+        transform : translateY(0.1em);
+    }
+}
+
+@keyframes lettermove2 {
+    0% {
+        transform : translateY(0px);
+    }
+
+    50% {
+        transform : translateY(4px);
+    }
+
+    100% {
+        transform : translateY(-4px);
+    }
+}
+
+#home-navigation {
+    position      : fixed;
+    top           : 0px;
+    left          : 0px;
+    z-index       : 15;
+    padding       : 17px 15px 13px 15px;
+    width         : calc(100vw - 30px);
+
+    .background {
+        width      : 100%;
+        height     : 0%;
+        position   : absolute;
+        opacity    : 1;
+        left       : 0px;
+        top        : 0px;
+        transition : height 0.5s ease-in-out,
+                     opacity 0.5s ease-in-out;
+
+        &.default {
+            opacity : 0;
+        }
+
+        &.home {
+            height  : 0%;
+            opacity : 0;
+        }
+
+        &.alt {
+            height     : 100%;
+            box-shadow : 0px 4px 6px rgba(0, 0, 0, 0.8);
+            background : linear-gradient(115deg, rgba(3, 23, 30, 0.9) 50%, rgba(38, 48, 55, 0.9) 75%, rgba(3, 23, 30, 0.9) 95%);
+        }
+    }
+
+    .name {
+        text-align : center;
+        filter     : drop-shadow(0px 0px 6px rgba(255, 67, 101, 0.5));
+
+        &.home {
+            margin-top : 15px;
+
+            .header {
+                font-size : 3em;
+            }
+        }
+
+        .header,
+        .subheader {
+            span {
+                color                     : #eeffff;
+                display                   : inline-block;
+                animation-name            : lettermove2;
+                animation-timing-function : ease-in-out;
+                animation-duration        : 3s;
+                animation-iteration-count : infinite;
+                animation-direction       : alternate;
+
+                &:nth-child(2) {
+                    animation-delay : 100ms;
+                }
+
+                &:nth-child(2) {
+                    animation-delay : 200ms;
+                }
+
+                &:nth-child(3) {
+                    animation-delay : 300ms;
+                }
+
+                &:nth-child(4) {
+                    animation-delay : 400ms;
+                }
+
+                &:nth-child(5) {
+                    animation-delay : 500ms;
+                }
+
+                &:nth-child(6) {
+                    animation-delay : 600ms;
+                }
+
+                &:nth-child(7) {
+                    animation-delay : 700ms;
+                }
+
+                &:nth-child(8) {
+                    animation-delay : 800ms;
+                }
+
+                &:nth-child(9) {
+                    animation-delay : 900ms;
+                }
+
+                &:nth-child(10) {
+                    animation-delay : 1000ms;
+                }
+
+                &:nth-child(11) {
+                    animation-delay : 1100ms;
+                }
+
+                &:nth-child(12) {
+                    animation-delay : 1200ms;
+                }
+            }
+        }
+
+        .header {
+            font-size   : 2em;
+            text-shadow : 
+                0px 1px 1px #919191,
+                0px 2px 1px #919191,
+                0px 3px 1px #919191,
+                0px 4px 1px #919191,
+                0px 5px 1px #919191,
+                0px 6px 1px #919191;
+        }
+
+        .subheader {
+            font-size   : 1.25em;
+            margin-top  : 8px;
+            display     : block;
+            transition  : opacity 0.5s ease-in-out;
+            text-shadow : 
+                0px 1px 1px #919191,
+                0px 2px 1px #919191,
+                0px 3px 1px #919191,
+                0px 4px 1px #919191;
+
+            &.home {
+                opacity : 1;
+            }
+
+            &.alt {
+                opacity : 0;
+            }
+        }
+
+        .text-3d {
+            position       : relative;
+            text-transform : uppercase;
+            font-family    : "Helvetica Neue", Helvetica, sans-serif;
+            font-weight    : 700;
+            color          : #f5f5f5;
+        }
+    }
+    
+    .menu {
+        display               : grid;
+        grid-template-columns : 1fr 1fr 1fr 1fr;
+        grid-gap              : 7px;
+        margin-top            : 8px;
+        z-index               : 5;
+        position              : relative;
+
+        &.home {
+            opacity        : 0;
+            pointer-events : none;
+        }
+    }
+
+    button {
+        background     : none;
+        border         : none;
+        border-radius  : 5px;
+        font-size      : 0.8em;
+        text-transform : uppercase;
+        color          : white;
+        padding        : 5px 10px;
+    }
+}

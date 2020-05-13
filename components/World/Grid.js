@@ -18,7 +18,7 @@ class Grid {
         }
 
         this.horizontalLines.forEach(line => {
-            line.uniqueKey = `line-${ Math.round(Math.random() * 10000) }`;
+            line.uniqueKey = `line-${ Math.round(Math.random() * 10000000) }`;
         });
 
         // Vertical Lines
@@ -63,6 +63,26 @@ class Grid {
         this.verticalLines.last().position = position;
         this.verticalLines.last().material = new BABYLON.StandardMaterial("material", this.scene);
         this.verticalLines.last().material.emissiveColor = Config.grid.color;
+    }
+
+    animate() {
+        // Grid
+        var i = 0,
+            sceneOriginOffset = -0.1;
+
+            this.horizontalLines.forEach(line => {
+                line.position.x += -Config.consciousness.walkSpeed;
+                line.position.z += -Config.consciousness.walkSpeed;
+
+                if (line.position.x <= sceneOriginOffset + Config.camera.initialTarget.diameter && line.position.z <= sceneOriginOffset + Config.camera.initialTarget.diameter && line.position.x >= sceneOriginOffset - Config.camera.initialTarget.diameter && line.position.z >= sceneOriginOffset - Config.camera.initialTarget.diameter) {
+                    line.material.emissiveColor = new BABYLON.Color3(1, 1, 1);
+                    line.dispose();
+                    this.horizontalLines.splice(i, 1);
+                    this.newHorizontalLine(new BABYLON.Vector3(this.horizontalLinesInitialMax * Config.grid.frequency, 0, this.horizontalLinesInitialMax * Config.grid.frequency));
+                }
+
+                i++;
+            });
     }
 }
 

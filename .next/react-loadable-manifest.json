@@ -1,88 +1,306 @@
 {
   "../components/World/World": [
     {
-      "id": "Yveq",
+      "id": "./assets/scss/reset.scss",
+      "name": "./assets/scss/reset.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/global.scss",
+      "name": "./assets/scss/global.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Navigation/Home/styles.scss",
+      "name": "./components/Navigation/Home/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/backgrounds.scss",
       "name": "./assets/scss/backgrounds.scss",
-      "file": "static/chunks/styles.3985259ac626e9704644.js",
-      "publicPath": "static/chunks/styles.3985259ac626e9704644.js"
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./layouts/default/styles.scss",
+      "name": "./layouts/default/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/styles.scss",
+      "name": "./pages/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/portfolio/styles.scss",
+      "name": "./pages/portfolio/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Button/styles.scss",
+      "name": "./components/UI/Button/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
       "id": 4,
       "name": null,
-      "file": "static/chunks/styles.3985259ac626e9704644.js",
-      "publicPath": "static/chunks/styles.3985259ac626e9704644.js"
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "5pKv",
-      "name": "./node_modules/core-js/library/modules/_string-ws.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": "./components/HomeMenu/styles.scss",
+      "name": "./components/HomeMenu/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "6BQ9",
-      "name": "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": "./pages/about/styles.scss",
+      "name": "./pages/about/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "9uPS",
-      "name": "./public/js/vendor/granim.min.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "CpBc",
-      "name": "./node_modules/core-js/library/modules/es6.parse-float.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 7,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "EP9H",
-      "name": "./node_modules/core-js/library/modules/_parse-float.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 8,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "Wa2I",
-      "name": "./node_modules/@babel/runtime-corejs2/core-js/parse-float.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 9,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "XWtR",
-      "name": "./node_modules/core-js/library/modules/_parse-int.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 10,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "dEVD",
-      "name": "./node_modules/core-js/library/modules/es6.parse-int.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 12,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "e+cT",
-      "name": "./node_modules/core-js/library/fn/parse-float.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": 14,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "fXX9",
+      "id": 15,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Panel/styles.scss",
+      "name": "./components/UI/Panel/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/World/Backgrounds.js",
+      "name": "./components/World/Backgrounds.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Camera.js",
+      "name": "./components/World/Camera.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Config.js",
+      "name": "./components/World/Config.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Consciousness.js",
+      "name": "./components/World/Consciousness.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Effects.js",
+      "name": "./components/World/Effects.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Grid.js",
+      "name": "./components/World/Grid.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Light.js",
+      "name": "./components/World/Light.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Mountains.js",
+      "name": "./components/World/Mountains.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Plane.js",
+      "name": "./components/World/Plane.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Sky.js",
+      "name": "./components/World/Sky.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Stars.js",
+      "name": "./components/World/Stars.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Sun.js",
+      "name": "./components/World/Sun.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Title.js",
+      "name": "./components/World/Title.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Utils.js",
+      "name": "./components/World/Utils.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/World.js",
       "name": "./components/World/World.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
     },
     {
-      "id": "oc46",
-      "name": "./node_modules/core-js/library/modules/_string-trim.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "id": "./node_modules/@babel/runtime-corejs2/core-js/parse-float.js",
+      "name": "./node_modules/@babel/runtime-corejs2/core-js/parse-float.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
     },
     {
-      "id": "uekQ",
+      "id": "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js",
+      "name": "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/fn/parse-float.js",
+      "name": "./node_modules/core-js/library/fn/parse-float.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/fn/parse-int.js",
       "name": "./node_modules/core-js/library/fn/parse-int.js",
-      "file": "static/chunks/11.77189a786c12a9b7adff.js",
-      "publicPath": "static/chunks/11.77189a786c12a9b7adff.js"
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_parse-float.js",
+      "name": "./node_modules/core-js/library/modules/_parse-float.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_parse-int.js",
+      "name": "./node_modules/core-js/library/modules/_parse-int.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_string-trim.js",
+      "name": "./node_modules/core-js/library/modules/_string-trim.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/_string-ws.js",
+      "name": "./node_modules/core-js/library/modules/_string-ws.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/es6.parse-float.js",
+      "name": "./node_modules/core-js/library/modules/es6.parse-float.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./node_modules/core-js/library/modules/es6.parse-int.js",
+      "name": "./node_modules/core-js/library/modules/es6.parse-int.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./public/js/vendor/granim.min.js",
+      "name": "./public/js/vendor/granim.min.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    }
+  ],
+  "./dev/noop": [
+    {
+      "id": "./node_modules/next/dist/client/dev/noop.js",
+      "name": "./node_modules/next/dist/client/dev/noop.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
     }
   ]
 }

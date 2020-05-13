@@ -1,7 +1,8 @@
 class Plane {
-    constructor(plane, scene) {
+    constructor(plane, scene, followCamera) {
         this.plane = plane;
         this.scene = scene;
+        this.followCamera = followCamera;
         this.createPlane();
     }
 

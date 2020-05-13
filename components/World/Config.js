@@ -1,6 +1,15 @@
 export default {
+    responsive: {
+        sizes: {
+            origin: 0,
+            small: 640,
+            medium: 767,
+            large: 1200,
+            xlarge: 1400
+        }
+    },
     debug: {
-        axis: true,
+        axis: false,
         axisSize: 1.5,
         cameraControls: true
     },
@@ -25,18 +34,7 @@ export default {
     },
     consciousness: {
         enabled: true,
-        walkSpeed: 0.003,
-        garbage: {
-            horizontalLines: {
-                disposalInterval: 2500
-            }
-        },
-        creation: {
-            horizontalLines: {
-                creationInterval: 2500,
-                amount: 5
-            }
-        }
+        walkSpeed: 0.003
     },
     backgrounds: {
         style: {
@@ -62,16 +60,35 @@ export default {
             }
         }
     },
-    stars: {
+    title: {
         enabled: false,
-        amount: 500,
-        diameter: 0.005,
+        text: "ALEX MEZA",
+        settings: {
+            default: {
+                scale: 0.027,
+                z: 1.56,
+                x: 1,
+                y: 4.4
+            },
+            medium: {
+
+            }
+        }
+    },
+    stars: {
+        enabled: true,
+        animated: true,
+        amount: 300,
+        minSize: 0.0025,
+        maxSize: 0.007, 
         minPos: -10,
-        maxPos: 50
+        maxPos: 50,
+        fadeInSpeed: 0.05,
+        rotationSpeed: 0.01
     },
     camera: {
         type: "free",
-        maxZ: 10,
+        maxZ: 0.001,
         initialPosition: {
             x: -0.11,
             y: 0.05,
@@ -89,58 +106,27 @@ export default {
     effects: {
         enabled: true,
         glow: {
-            intensity: 1
+            intensity: 0.75
         },
         fog: {
             enabled: false,
             density: 0.01,
             color: new BABYLON.Color3.FromHexString("#000000")
-        }
-    },
-    ground: {
-        type: "none",
-        static: {
-            heightMap: "images/height_map5.png",
-            width: 15,
-            height: 15,
-            textureHeight: 0,
-            subdivisions: 2,
-            rotation: 0.7854,
-            x: 3,
-            z: 3,
-            grid: {
-                mainColor: new BABYLON.Color3.FromHexString("#000000"),
-                lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
-                gridRatio: 0.1,
-                majorUnitFrequency: 1,
-                opacity: 0.99
-            }
         },
-        dynamic: {
-            heightMap: "images/height_map5.png",
-            width: 15,
-            height: 15,
-            textureHeight: 0,
-            subdivisions: 2,
-            rotation: 0.7854,
-            x: 3,
-            z: 3,
-            grid: {
-                mainColor: new BABYLON.Color3.FromHexString("#000000"),
-                lineColor: new BABYLON.Color3.FromHexString("#F706CF"),
-                gridRatio: 0.1,
-                majorUnitFrequency: 1,
-                opacity: 1
-            }
+        lens: {
+            enabled: true
         }
     },
     grid: {
+        enabled: true,
+        animated: true,
         verticalLinesAmount: 100,
-        horizontalLinesAmount: 215,
+        horizontalLinesAmount: 60,
         color: new BABYLON.Color3.FromHexString("#F706CF"),
         frequency: 0.05,
         diameter: 0.001,
-        height: 10
+        height: 10,
+        speed: 0.003
     },
     mountains: {
         enabled: true,
@@ -162,26 +148,23 @@ export default {
                     majorUnitFrequency: 1,
                     opacity: 1
                 }
-            },
-            // {
-            //     heightMap: "images/height_map8.png",
-            //     width: 2,
-            //     height: 5,
-            //     textureHeight: 0.5,
-            //     subdivisions: 20,
-            //     rotation: 0.785,
-            //     x: 3,
-            //     z: 3,
-            //     y: -0.1,
-            //     grid: {
-            //         mainColor: new BABYLON.Color3.FromHexString("#000000"),
-            //         lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
-            //         gridRatio: 0.2,
-            //         majorUnitFrequency: 1,
-            //         opacity: 1
-            //     }
-            // }
+            }
         ]
+    },
+    sky: {
+        enabled: true,
+        colors: {
+            top: {
+                r: 25,
+                g: 45,
+                b: 109
+            },
+            bottom: {
+                r: 0,
+                g: 5,
+                b: 44
+            }
+        }
     },
     planes: [
         {

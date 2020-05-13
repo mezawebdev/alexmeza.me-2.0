@@ -3,12 +3,6 @@ module.exports =
 /******/ 	// The module cache
 /******/ 	var installedModules = require('../../../ssr-module-cache.js');
 /******/
-/******/ 	// object to store loaded chunks
-/******/ 	// "0" means "already loaded"
-/******/ 	var installedChunks = {
-/******/ 		"static/development/pages/index.js": 0
-/******/ 	};
-/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -39,26 +33,6 @@ module.exports =
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var promises = [];
-/******/
-/******/
-/******/ 		// require() chunk loading for javascript
-/******/
-/******/ 		// "0" is the signal for "already loaded"
-/******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("../../../" + ({}[chunkId]||chunkId) + ".js");
-/******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
-/******/ 			for(var moduleId in moreModules) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 			for(var i = 0; i < chunkIds.length; i++)
-/******/ 				installedChunks[chunkIds[i]] = 0;
-/******/ 		}
-/******/ 		return Promise.all(promises);
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -112,13 +86,6 @@ module.exports =
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// uncaught error handler for webpack runtime
-/******/ 	__webpack_require__.oe = function(err) {
-/******/ 		process.nextTick(function() {
-/******/ 			throw err; // catch this error by using import().catch()
-/******/ 		});
-/******/ 	};
-/******/
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 3);
@@ -126,53 +93,110 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/js/injector.js":
-/*!*******************************!*\
-  !*** ./assets/js/injector.js ***!
-  \*******************************/
+/***/ "./app.config.js":
+/*!***********************!*\
+  !*** ./app.config.js ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const Injector = {
-  init() {
-    Array.prototype.last = function () {
-      return this[this.length - 1];
-    };
+/* harmony default export */ __webpack_exports__["default"] = ({
+  navigation: {
+    items: [{
+      path: "/",
+      text: "Home"
+    }, {
+      path: "/portfolio",
+      text: "Portfolio"
+    }, {
+      path: "/about",
+      text: "About"
+    }, {
+      path: "/contact",
+      text: "Contact"
+    }]
+  },
+  pages: {
+    home: {}
+  }
+});
 
-    Array.prototype.first = function () {
-      return this[0];
-    };
+/***/ }),
 
-    Array.prototype.sliceFirst = function () {
-      this.slice(0, 1);
-    };
+/***/ "./components/HomeMenu/index.js":
+/*!**************************************!*\
+  !*** ./components/HomeMenu/index.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    Array.prototype.isInArray = function (item) {
-      for (let i = 0; i < this.length; i++) {
-        if (item === this[i]) {
-          return true;
-        }
-      }
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.scss */ "./components/HomeMenu/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../app.config */ "./app.config.js");
+/* harmony import */ var _UI_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../UI/Button */ "./components/UI/Button/index.js");
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/HomeMenu/index.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-      return false;
-    };
 
-    Array.prototype.sliceLast = function () {
-      this.slice[(this.length - 1, 1)];
-    };
+
+
+
+const Navigation = [];
+
+for (let i = 1; i < _app_config__WEBPACK_IMPORTED_MODULE_3__["default"].navigation.items.length; i++) {
+  Navigation.push(_app_config__WEBPACK_IMPORTED_MODULE_3__["default"].navigation.items[i]);
+}
+
+class HomeMenu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
   }
 
-};
-/* harmony default export */ __webpack_exports__["default"] = (Injector);
+  render() {
+    return __jsx("div", {
+      id: "home-menu",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, Navigation.map((value, i) => {
+      return __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        key: i,
+        href: value.path,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
+        },
+        __self: this
+      }, __jsx(_UI_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, value.text));
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (HomeMenu);
 
 /***/ }),
 
-/***/ "./assets/scss/global.scss":
-/*!*********************************!*\
-  !*** ./assets/scss/global.scss ***!
-  \*********************************/
+/***/ "./components/HomeMenu/styles.scss":
+/*!*****************************************!*\
+  !*** ./components/HomeMenu/styles.scss ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -180,20 +204,9 @@ const Injector = {
 
 /***/ }),
 
-/***/ "./assets/scss/reset.scss":
-/*!********************************!*\
-  !*** ./assets/scss/reset.scss ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./components/Navigation/Navigation.js":
+/***/ "./components/Navigation/Home/index.js":
 /*!*********************************************!*\
-  !*** ./components/Navigation/Navigation.js ***!
+  !*** ./components/Navigation/Home/index.js ***!
   \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -204,62 +217,220 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Navigation_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navigation.scss */ "./components/Navigation/Navigation.scss");
-/* harmony import */ var _Navigation_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Navigation_scss__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/components/Navigation/Navigation.js";
+/* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../app.config */ "./app.config.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.scss */ "./components/Navigation/Home/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/Navigation/Home/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
-class Navigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+
+class HomeNavigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return __jsx("div", {
-      id: "navigation",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 8
-      },
-      __self: this
-    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 9
-      },
-      __self: this
-    }, __jsx("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: this
-    }, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/portfolio",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12
-      },
-      __self: this
-    }, __jsx("a", {
+      id: "home-navigation",
+      className: this.props.type,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13
       },
       __self: this
-    }, "Portfolio")));
+    }, __jsx("div", {
+      className: `${this.props.type} background`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }), __jsx("div", {
+      className: `${this.props.type} name`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, __jsx("span", {
+      className: `${this.props.type} text-3d header`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, "A"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      },
+      __self: this
+    }, "L"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }, "X"), "\xA0", __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    }, "M"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }, "Z"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, "A")), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }), __jsx("span", {
+      className: `${this.props.type} text-3d subheader`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }, __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      },
+      __self: this
+    }, "W"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "B"), "\xA0", __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37
+      },
+      __self: this
+    }, "D"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, "V"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }, "L"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      },
+      __self: this
+    }, "O"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43
+      },
+      __self: this
+    }, "P"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }, "E"), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    }, "R"))), __jsx("div", {
+      className: `${this.props.type} menu`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 48
+      },
+      __self: this
+    }, _app_config__WEBPACK_IMPORTED_MODULE_2__["default"].navigation.items.map((value, i) => {
+      return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        key: i,
+        href: value.path,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
+        },
+        __self: this
+      }, __jsx("button", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
+        },
+        __self: this
+      }, value.text));
+    })));
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Navigation);
+/* harmony default export */ __webpack_exports__["default"] = (HomeNavigation);
 
 /***/ }),
 
-/***/ "./components/Navigation/Navigation.scss":
-/*!***********************************************!*\
-  !*** ./components/Navigation/Navigation.scss ***!
-  \***********************************************/
+/***/ "./components/Navigation/Home/styles.scss":
+/*!************************************************!*\
+  !*** ./components/Navigation/Home/styles.scss ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -267,10 +438,10 @@ class Navigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 
 /***/ }),
 
-/***/ "./layouts/default.js":
-/*!****************************!*\
-  !*** ./layouts/default.js ***!
-  \****************************/
+/***/ "./components/UI/Button/index.js":
+/*!***************************************!*\
+  !*** ./components/UI/Button/index.js ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -278,99 +449,249 @@ class Navigation extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Navigation/Navigation */ "./components/Navigation/Navigation.js");
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "next/dynamic");
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/head */ "next/head");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/scss/reset.scss */ "./assets/scss/reset.scss");
-/* harmony import */ var _assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_reset_scss__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/scss/global.scss */ "./assets/scss/global.scss");
-/* harmony import */ var _assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_global_scss__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _assets_js_injector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/js/injector */ "./assets/js/injector.js");
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/layouts/default.js";
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.scss */ "./components/UI/Button/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/UI/Button/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-// SSR Components
 
 
+const panelCanvas = {
+  init(button, canvas) {
+    this.button = button;
+    this.canvas = canvas;
+    this.ctx = this.canvas.getContext("2d");
+    this.borderWidth = 2.5;
+    this.borderRadius = 5;
+    this.borderColor = "rgba(0, 171, 170, 1)";
+    this.backgroundColor = "rgba(0, 55, 68, 0.5)";
+    this.set();
+  },
 
+  set() {
+    this.canvas.width = this.button.offsetWidth;
+    this.canvas.height = this.button.offsetHeight;
+    this.draw1(); // this.draw2();
+  },
 
+  draw1() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, this.borderRadius);
+    this.ctx.lineTo(this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width, this.borderRadius);
+    this.ctx.lineTo(this.canvas.width, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(0, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(0, this.borderRadius);
+    this.ctx.lineWidth = this.borderWidth;
+    this.ctx.strokeStyle = this.borderColor;
+    this.ctx.fillStyle = this.backgroundColor;
+    this.ctx.stroke();
+    this.ctx.fill();
+    this.ctx.closePath();
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, this.borderRadius);
+    this.ctx.lineTo(this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width, this.borderRadius);
+    this.ctx.lineTo(this.canvas.width, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(0, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(0, this.borderRadius);
+    this.ctx.lineWidth = this.borderWidth;
+    this.ctx.strokeStyle = this.borderColor;
+    this.ctx.stroke();
+    this.ctx.closePath();
+  },
 
+  draw2() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, this.borderRadius);
+    this.ctx.lineTo(this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width, this.borderRadius);
+    this.ctx.lineTo(this.canvas.width, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(0, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(0, this.borderRadius);
+    this.ctx.lineWidth = this.borderWidth;
+    this.ctx.strokeStyle = this.borderColor;
+    this.ctx.fillStyle = this.backgroundColor; // this.ctx.stroke();
 
+    this.ctx.fill();
+    this.ctx.closePath();
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, this.borderRadius);
+    this.ctx.lineTo(this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, 0);
+    this.ctx.lineTo(this.canvas.width, this.borderRadius);
+    this.ctx.moveTo(this.canvas.width, this.canvas.height - this.borderRadius);
+    this.ctx.lineTo(this.canvas.width - this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(this.borderRadius, this.canvas.height);
+    this.ctx.lineTo(0, this.canvas.height - this.borderRadius);
+    this.ctx.lineWidth = this.borderWidth;
+    this.ctx.strokeStyle = this.borderColor;
+    this.ctx.fillStyle = this.backgroundColor;
+    this.ctx.stroke(); // this.ctx.fill();
 
-_assets_js_injector__WEBPACK_IMPORTED_MODULE_6__["default"].init(); // No SSR Components
-
-const World = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(() => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/World/World */ "./components/World/World.js")), {
-  ssr: false,
-  loadableGenerated: {
-    webpack: () => [/*require.resolve*/(/*! ../components/World/World */ "./components/World/World.js")],
-    modules: ["../components/World/World"]
+    this.ctx.closePath();
   }
-});
+
+};
+
+class Button extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.button = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    this.canvas = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+  }
+
+  componentDidMount() {
+    panelCanvas.init(this.button.current, this.canvas.current);
+  }
+
+  render() {
+    return __jsx("div", {
+      ref: this.button,
+      href: "#",
+      className: "button-ui",
+      onClick: this.props.onClick,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 107
+      },
+      __self: this
+    }, __jsx("canvas", {
+      ref: this.canvas,
+      className: "button-canvas",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 112
+      },
+      __self: this
+    }), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 116
+      },
+      __self: this
+    }, this.props.children));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
+/***/ "./components/UI/Button/styles.scss":
+/*!******************************************!*\
+  !*** ./components/UI/Button/styles.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./layouts/default/index.js":
+/*!**********************************!*\
+  !*** ./layouts/default/index.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Navigation_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Navigation/Home */ "./components/Navigation/Home/index.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.scss */ "./layouts/default/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/layouts/default/index.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
 
 class Default extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navType: "default"
+    };
+    next_router__WEBPACK_IMPORTED_MODULE_1___default.a.events.on("routeChangeComplete", url => {
+      this.setNavigation(url);
+    });
+  }
+
+  componentDidMount() {
+    this.setNavigation();
+  }
+
+  setNavigation(url) {
+    let navType;
+    url = url || next_router__WEBPACK_IMPORTED_MODULE_1___default.a.router.route;
+
+    if (url === "/") {
+      navType = "home";
+    } else {
+      navType = "alt";
+    }
+
+    this.setState({
+      navType
+    });
+  }
+
   render() {
     return __jsx("div", {
       id: "layout-default",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 39
       },
       __self: this
-    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    }, __jsx("div", {
+      className: "container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 40
       },
       __self: this
-    }, __jsx("title", {
+    }, __jsx(_components_Navigation_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      type: this.state.navType,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 41
       },
       __self: this
-    }, "ALEX MEZA | Web Developer"), __jsx("meta", {
-      name: "viewport",
-      content: "initial-scale=1.0, width=device-width",
-      key: "viewport",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }), __jsx("script", {
-      src: "/js/vendor/babylon.js",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25
-      },
-      __self: this
-    }), __jsx("script", {
-      src: "/js/vendor/babylonjs.materials.min.js",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    }), __jsx("script", {
-      src: "/js/vendor/babylon.dynamicTerrain.min.js",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    })), __jsx(World, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29
-      },
-      __self: this
-    }), this.props.children);
+    }), this.props.children));
   }
 
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Default);
+
+/***/ }),
+
+/***/ "./layouts/default/styles.scss":
+/*!*************************************!*\
+  !*** ./layouts/default/styles.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -2056,25 +2377,41 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_default__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/default */ "./layouts/default.js");
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js";
+/* harmony import */ var _layouts_default__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/default */ "./layouts/default/index.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_HomeMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/HomeMenu */ "./components/HomeMenu/index.js");
+/* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../app.config */ "./app.config.js");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles.scss */ "./pages/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
+
+let navigation = [];
+
+for (let i = 1; i < _app_config__WEBPACK_IMPORTED_MODULE_4__["default"].navigation.items.length; i++) {
+  navigation.push(_app_config__WEBPACK_IMPORTED_MODULE_4__["default"].navigation.items[i]);
+}
+
 class Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   render() {
-    return __jsx(_layouts_default__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 7
-      },
-      __self: this
-    }, __jsx("div", {
+    return __jsx("div", {
+      className: "page",
       id: "home",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 17
+      },
+      __self: this
+    }, __jsx(_components_HomeMenu__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
       },
       __self: this
     }));
@@ -2082,7 +2419,19 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 }
 
+Home.Layout = _layouts_default__WEBPACK_IMPORTED_MODULE_1__["default"];
 /* harmony default export */ __webpack_exports__["default"] = (Home);
+
+/***/ }),
+
+/***/ "./pages/styles.scss":
+/*!***************************!*\
+  !*** ./pages/styles.scss ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -2093,7 +2442,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/pages/index.js */"./pages/index.js");
 
 
 /***/ }),
@@ -2153,25 +2502,14 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
-/***/ "next/dynamic":
-/*!*******************************!*\
-  !*** external "next/dynamic" ***!
-  \*******************************/
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("next/dynamic");
-
-/***/ }),
-
-/***/ "next/head":
-/*!****************************!*\
-  !*** external "next/head" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/head");
+module.exports = require("next/router");
 
 /***/ }),
 

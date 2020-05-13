@@ -4797,7 +4797,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me/.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/.next");
       return error;
     }
   };
@@ -7230,7 +7230,7 @@ var _fouc = __webpack_require__(/*! ./dev/fouc */ "./node_modules/next/dist/clie
 /* globals import('./dev/noop'); */
 
 
-__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./dev/noop */ "./node_modules/next/dist/client/dev/noop.js", 7));
+__webpack_require__.e(/*! import() */ 1).then(__webpack_require__.t.bind(null, /*! ./dev/noop */ "./node_modules/next/dist/client/dev/noop.js", 7));
 ; // Support EventSource on Internet Explorer 11
 
 if (!window.EventSource) {

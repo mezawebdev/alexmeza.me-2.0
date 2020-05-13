@@ -6,7 +6,10 @@ class Camera {
     constructor(canvas, scene) {
         this.scene = scene;
         this.setCamera();
+        this.animate();
         this.camera.minZ = 0;
+
+        // this.camera.attachControl(canvas, true);
         
         if (Config.debug.cameraControls) {
             this.camera.attachControl(canvas, true);
@@ -51,7 +54,11 @@ class Camera {
     createTarget() {
         this.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
             diameter: Config.camera.initialTarget.diameter
-        });
+        }, this.scene);
+
+        this.targetSphere.material = new BABYLON.StandardMaterial("transparent-material", this.scene);
+
+        this.targetSphere.material.alpha = 0;
 
         this.targetSphere.position = new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z);
 
@@ -60,6 +67,45 @@ class Camera {
         }
 
         this.camera.position = new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z);
+    }
+
+    animate() {
+        // this.scene.onPointerObservable.add(pointerInfo => {
+        //     switch (pointerInfo.type) {
+        //         case BABYLON.PointerEventTypes.POINTERDOWN:
+        //             console.log("POINTER DOWN");
+        //             // this.targetSphere.position.y += -0.01;
+        //             // this.camera.position.y += -0.1;
+        //             // console.log(this.camera.position.y);
+        //             break;
+        //         case BABYLON.PointerEventTypes.POINTERUP:
+        //             console.log("POINTER UP");
+        //             // this.targetSphere.position.y += 0.01;
+        //             // this.camera.position.y += 0.1;
+        //             // console.log(this.camera.position.y);
+        //             break;
+        //         case BABYLON.PointerEventTypes.POINTERMOVE:
+        //             // this.camera.position.y += 0.1;
+        //             this.targetSphere.position.y += 0.01;
+        //             console.log(pointerInfo);
+        //             console.log("POINTER MOVE");
+        //             // this.camera.position.y += -0.001;
+        //             break;
+        //         case BABYLON.PointerEventTypes.POINTERWHEEL:
+        //             console.log("POINTER WHEEL");
+        //             // this.targetSphere.position.y += -0.01;
+        //             break;
+        //         case BABYLON.PointerEventTypes.POINTERPICK:
+        //             console.log("POINTER PICK");
+        //             break;
+        //         case BABYLON.PointerEventTypes.POINTERTAP:
+        //             console.log("POINTER TAP");
+        //             break;
+        //         case BABYLON.PointerEventTypes.POINTERDOUBLETAP:
+        //             console.log("POINTER DOUBLE-TAP");
+        //             break;
+        //     }
+        // });
     }
 }
 

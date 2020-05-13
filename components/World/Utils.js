@@ -37,5 +37,14 @@ export default {
     },
     getRandomPaletteColor() {
         return Config.palette[Math.round(Math.random() * (Config.palette.length - 1))];
+    },
+    getProp(key1, key2) {
+        if (window.innerWidth < Config.responsive.sizes.medium) {
+            return Config[key1].settings.default[key2];
+        }
+
+        if (window.innerWidth >= Config.responsize.sizes.medium) {
+
+        }
     }
 }

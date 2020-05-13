@@ -1,0 +1,9 @@
+#home-menu {
+    position              : fixed;
+    bottom                : 50px;
+    transform             : translate(-50%, 0);
+    left                  : 50%;
+    display               : grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    grid-gap              : 10px;
+}

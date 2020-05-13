@@ -10,6 +10,9 @@ import Backgrounds from "./Backgrounds";
 import Consciousness from "./Consciousness";
 import Plane from "./Plane";
 import Grid from "./Grid";
+import Title from "./Title";
+import Sky from "./Sky";
+import Sun from "./Sun";
 
 class World extends React.Component {
     constructor(props) {
@@ -17,14 +20,30 @@ class World extends React.Component {
         this.canvas = React.createRef();
     }
 
+    resizeToMatchDisplaySize(canvas) {
+        var displayWidth  = canvas.clientWidth  * window.devicePixelRatio,
+            displayHeight = canvas.clientHeight * window.devicePixelRatio;
+
+        if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+          canvas.width  = displayWidth;
+          canvas.height = displayHeight;
+          return true;
+        }
+
+        return false;
+    }
+
     resize() {
-        this.canvas.current.width = window.innerWidth;
-        this.canvas.current.height = window.innerHeight;
+        // this.canvas.current.width = window.innerWidth;
+        // this.canvas.current.height = window.innerHeight;
+        this.resizeToMatchDisplaySize(this.canvas.current);
         this.engine.resize();
     }
 
     startEngine() {
-        this.engine = new BABYLON.Engine(this.canvas.current, true);
+        this.engine = new BABYLON.Engine(this.canvas.current, true, {
+            stencil: true
+        });
         this.scene = new BABYLON.Scene(this.engine);
         this.camera = new Camera(this.canvas.current, this.scene);
     }
@@ -35,16 +54,10 @@ class World extends React.Component {
         if (Config.lights.enabled) {
             this.light = new Light(this.scene);
         }
-        
-        // TO BE DELETED
-        // if (Config.ground.type === "static") {
-        //     this.staticGround = new StaticGround(this.scene);
-        // } else if (Config.ground.type === "dynamic") {
-        //     this.dynamicGround = new DynamicGround(this.scene);
-        // } else {
-        //     this.ground = new Grid(this.scene);
-        // }
-        this.ground = new Grid(this.scene);
+
+        if (Config.grid.enabled) {
+            this.grid = new Grid(this.scene);
+        }
 
         if (Config.mountains.enabled) {
             this.mountains = new Mountains(this.scene);
@@ -54,13 +67,23 @@ class World extends React.Component {
             this.stars = new Stars(this.scene);
         }
 
+        this.sun = new Sun(this.scene);
+
+        if (Config.sky.enabled) {
+            this.sky = new Sky(this.scene);
+        }
+
         if (Config.effects.enabled) {
-            this.effects = new Effects(this.scene);
+            this.effects = new Effects(this);
+        }
+
+        if (Config.title.enabled) {
+            this.title = new Title(this.scene);
         }
 
         Config.planes.forEach(plane => {
             if (plane.enabled) {
-                plane.mesh = new Plane(plane, this.scene);
+                plane.mesh = new Plane(plane, this.scene, plane.followCamera);
             }
         });
     }
@@ -89,15 +112,8 @@ class World extends React.Component {
 
             if (Config.consciousness.enabled) {
                 this.consciousness.update();
-                this.consciousness.destroy();
             }
         });
-
-        // if (Config.consciousness.enabled) {
-        //     setInterval(() => {
-        //         this.consciousness.destroy();
-        //     }, 1000);
-        // }
     }
 
     render() {
@@ -105,6 +121,7 @@ class World extends React.Component {
             <div>
                 <Backgrounds />
                 <canvas 
+                    touch-action="none"
                     id="canvas"
                     style={ Config.canvas.style }
                     ref={ this.canvas }>

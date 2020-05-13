@@ -1,0 +1,26 @@
+.button-ui {
+    background                 : none;
+    border                     : none;
+    padding                    : 0px 18px;
+    text-transform             : uppercase;
+    font-size                  : 0.8em;
+    height                     : 35px;
+    color                      : #9affff;
+    position                   : relative;
+    display                    : flex;
+    justify-content            : center;
+    align-items                : center;
+    filter : drop-shadow(0px 3px 0px #2DE2E6);
+
+    .button-canvas {
+        position : absolute;
+        z-index  : -1;
+        filter   : drop-shadow(0px 4px 7px rgba(0, 0, 0, 1));
+    }
+
+    span {
+        position    : relative;
+        top         : -1px;
+        font-weight : 100;
+    }
+}

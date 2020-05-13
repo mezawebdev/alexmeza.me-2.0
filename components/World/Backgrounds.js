@@ -23,9 +23,17 @@ class Backgrounds extends React.Component {
 
     render() {
         return (
-            <div style={ Config.backgrounds.style } id="backgrounds">
-                <div style={ Config.backgrounds.centerGradientBackground.style } id="gradient-center-background"></div>
-                <canvas style={ Config.backgrounds.bottomColorBackground.style } id="bottom-color-background"></canvas>
+            <div 
+                style={ Config.backgrounds.style } 
+                id="backgrounds">
+                <div 
+                    style={ Config.backgrounds.centerGradientBackground.style } 
+                    id="gradient-center-background">    
+                </div>
+                <canvas 
+                    style={ Config.backgrounds.bottomColorBackground.style } 
+                    id="bottom-color-background">    
+                </canvas>
             </div>
         );
     }
