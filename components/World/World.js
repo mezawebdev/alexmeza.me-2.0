@@ -67,7 +67,9 @@ class World extends React.Component {
             this.stars = new Stars(this.scene);
         }
 
-        this.sun = new Sun(this.scene);
+        if (Config.sun.enabled) {
+            this.sun = new Sun(this.scene);
+        }
 
         if (Config.sky.enabled) {
             this.sky = new Sky(this.scene);

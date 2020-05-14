@@ -1,32 +1,20 @@
 {
   "../components/World/World": [
     {
-      "id": 9,
+      "id": "./assets/scss/settings.scss",
+      "name": "./assets/scss/settings.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 1,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./assets/scss/backgrounds.scss",
-      "name": "./assets/scss/backgrounds.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./assets/scss/global.scss",
-      "name": "./assets/scss/global.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./assets/scss/reset.scss",
-      "name": "./assets/scss/reset.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./assets/scss/settings.scss",
-      "name": "./assets/scss/settings.scss",
+      "id": 2,
+      "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
@@ -43,7 +31,55 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 2,
+      "id": "./assets/scss/reset.scss",
+      "name": "./assets/scss/reset.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/HomeMenu/styles.scss",
+      "name": "./components/HomeMenu/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/backgrounds.scss",
+      "name": "./assets/scss/backgrounds.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./assets/scss/global.scss",
+      "name": "./assets/scss/global.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/styles.scss",
+      "name": "./pages/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Navigation/Home/styles.scss",
+      "name": "./components/Navigation/Home/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./layouts/default/styles.scss",
+      "name": "./layouts/default/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 7,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -55,19 +91,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 12,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 13,
+      "id": 9,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -85,44 +109,8 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./components/HomeMenu/styles.scss",
-      "name": "./components/HomeMenu/styles.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Navigation/Home/styles.scss",
-      "name": "./components/Navigation/Home/styles.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
       "id": "./components/UI/Button/styles.scss",
       "name": "./components/UI/Button/styles.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./layouts/default/styles.scss",
-      "name": "./layouts/default/styles.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./pages/portfolio/styles.scss",
-      "name": "./pages/portfolio/styles.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./pages/styles.scss",
-      "name": "./pages/styles.scss",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 5,
-      "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },

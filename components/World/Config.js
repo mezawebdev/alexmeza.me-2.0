@@ -9,7 +9,7 @@ export default {
         }
     },
     debug: {
-        axis: false,
+        axis: true,
         axisSize: 1.5,
         cameraControls: true
     },
@@ -155,16 +155,26 @@ export default {
         enabled: true,
         colors: {
             top: {
-                r: 25,
-                g: 45,
-                b: 109
+                r: 8,
+                g: 13,
+                b: 46
             },
             bottom: {
-                r: 0,
-                g: 5,
-                b: 44
+                r: 247,
+                g: 6,
+                b: 207
             }
         }
+    },
+    sun: {
+        enabled: true,
+        diameter: 8,
+        position: {
+            x: 17,
+            y: -0.5,
+            z: 17
+        },
+        color: "#FF6C11"
     },
     planes: [
         {
@@ -178,5 +188,15 @@ export default {
                 color: new BABYLON.Color3.FromHexString("#000000")
             }
         }
-    ]
+    ],
+    buildings: {
+        enabled: true,
+        meshes: [
+            {
+                shape: "rectangle",
+                width: 0.5,
+                height: 0.5
+            }
+        ]
+    }
 }

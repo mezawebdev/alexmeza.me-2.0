@@ -236,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   debug: {
-    axis: false,
+    axis: true,
     axisSize: 1.5,
     cameraControls: true
   },
@@ -365,16 +365,26 @@ __webpack_require__.r(__webpack_exports__);
     enabled: true,
     colors: {
       top: {
-        r: 25,
-        g: 45,
-        b: 109
+        r: 8,
+        g: 13,
+        b: 46
       },
       bottom: {
-        r: 0,
-        g: 5,
-        b: 44
+        r: 247,
+        g: 6,
+        b: 207
       }
     }
+  },
+  sun: {
+    enabled: true,
+    diameter: 8,
+    position: {
+      x: 17,
+      y: -0.5,
+      z: 17
+    },
+    color: "#FF6C11"
   },
   planes: [{
     enabled: true,
@@ -386,7 +396,15 @@ __webpack_require__.r(__webpack_exports__);
     material: {
       color: new BABYLON.Color3.FromHexString("#000000")
     }
-  }]
+  }],
+  buildings: {
+    enabled: true,
+    meshes: [{
+      shape: "rectangle",
+      width: 0.5,
+      height: 0.5
+    }]
+  }
 });
 
 /***/ }),
@@ -810,11 +828,13 @@ var Sky = function Sky(scene) {
   BABYLON.Effect.ShadersStore.gradientVertexShader = "precision mediump float;attribute vec3 position;attribute vec3 normal;attribute vec2 uv;uniform mat4 worldViewProjection;varying vec4 vPosition;varying vec3 vNormal;void main(){vec4 p = vec4(position,1.);vPosition = p;vNormal = normal;gl_Position = worldViewProjection * p;}";
   BABYLON.Effect.ShadersStore.gradientPixelShader = "precision mediump float;uniform mat4 worldView;varying vec4 vPosition;varying vec3 vNormal;uniform float offset;uniform vec3 topColor;uniform vec3 bottomColor;void main(void){float h = normalize(vPosition+offset).y;gl_FragColor = vec4(mix(bottomColor,topColor,max(pow(max(h,0.0),0.6),0.0)),1.0);}";
   this.shader = new BABYLON.ShaderMaterial("gradient", this.scene, "gradient", {});
-  this.shader.setFloat("offset", 10);
+  this.shader.setFloat("offset", 20);
   this.shader.setColor3("topColor", BABYLON.Color3.FromInts(_Config__WEBPACK_IMPORTED_MODULE_1__["default"].sky.colors.top.r, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].sky.colors.top.g, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].sky.colors.top.b));
   this.shader.setColor3("bottomColor", BABYLON.Color3.FromInts(_Config__WEBPACK_IMPORTED_MODULE_1__["default"].sky.colors.bottom.r, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].sky.colors.bottom.g, _Config__WEBPACK_IMPORTED_MODULE_1__["default"].sky.colors.bottom.b));
   this.shader.backFaceCulling = false;
   this.skybox.material = this.shader;
+  this.skybox.rotation.x = -2.625;
+  this.skybox.rotation.z = -2.625;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Sky);
@@ -944,13 +964,13 @@ function () {
     key: "init",
     value: function init() {
       this.sphere = new BABYLON.MeshBuilder.CreateSphere("sun", {
-        diameter: 8
+        diameter: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.diameter
       }, this.scene);
       this.sphere.material = new BABYLON.StandardMaterial("sun-material", this.scene);
-      this.sphere.material.emissiveColor = new BABYLON.Color3.FromHexString(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].palette[5]);
-      this.sphere.position.x = 17;
-      this.sphere.position.z = 17;
-      this.sphere.position.y = -0.5;
+      this.sphere.material.emissiveColor = new BABYLON.Color3.FromHexString(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.color);
+      this.sphere.position.x = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.x;
+      this.sphere.position.z = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.z;
+      this.sphere.position.y = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.y;
     }
   }]);
 
@@ -1200,7 +1220,9 @@ function (_React$Component) {
         this.stars = new _Stars__WEBPACK_IMPORTED_MODULE_12__["default"](this.scene);
       }
 
-      this.sun = new _Sun__WEBPACK_IMPORTED_MODULE_19__["default"](this.scene);
+      if (_Config__WEBPACK_IMPORTED_MODULE_6__["default"].sun.enabled) {
+        this.sun = new _Sun__WEBPACK_IMPORTED_MODULE_19__["default"](this.scene);
+      }
 
       if (_Config__WEBPACK_IMPORTED_MODULE_6__["default"].sky.enabled) {
         this.sky = new _Sky__WEBPACK_IMPORTED_MODULE_18__["default"](this.scene);
@@ -1254,13 +1276,13 @@ function (_React$Component) {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 123
         },
         __self: this
       }, __jsx(_Backgrounds__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 124
         },
         __self: this
       }), __jsx("canvas", {
@@ -1270,7 +1292,7 @@ function (_React$Component) {
         ref: this.canvas,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 125
         },
         __self: this
       }));

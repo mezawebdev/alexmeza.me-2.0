@@ -8,15 +8,15 @@ class Sun {
 
     init() {
         this.sphere = new BABYLON.MeshBuilder.CreateSphere("sun", {
-            diameter: 8
+            diameter: Config.sun.diameter
         }, this.scene);
 
         this.sphere.material = new BABYLON.StandardMaterial("sun-material", this.scene);
-        this.sphere.material.emissiveColor = new BABYLON.Color3.FromHexString(Config.palette[5]);
+        this.sphere.material.emissiveColor = new BABYLON.Color3.FromHexString(Config.sun.color);
 
-        this.sphere.position.x = 17;
-        this.sphere.position.z = 17;
-        this.sphere.position.y = -0.5;
+        this.sphere.position.x = Config.sun.x;
+        this.sphere.position.z = Config.sun.z;
+        this.sphere.position.y = Config.sun.y;
     }
 }
 
