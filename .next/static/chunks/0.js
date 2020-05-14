@@ -96,6 +96,76 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./components/World/Buildings.js":
+/*!***************************************!*\
+  !*** ./components/World/Buildings.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Config */ "./components/World/Config.js");
+
+
+
+
+var Buildings =
+/*#__PURE__*/
+function () {
+  function Buildings(scene) {
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Buildings);
+
+    this.scene = scene;
+    this.meshes = [];
+    this.createBuildings();
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Buildings, [{
+    key: "createBuildings",
+    value: function createBuildings() {
+      var _this = this;
+
+      _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.meshes.forEach(function (mesh) {
+        var randomKey = "building-".concat(Math.round(Math.random() * 10000)),
+            gridMaterial = new BABYLON.GridMaterial("gridMaterial-".concat(Math.round(Math.random() * 100)), _this.scene),
+            currentMesh;
+        gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.mainColor;
+        gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.lineColor;
+        gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.gridRatio;
+        gridMaterial.backFaceCulling = false;
+        gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.majorUnitFrequency;
+        gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.opacity;
+
+        switch (mesh.shape) {
+          case "rectangle":
+            _this.meshes.push(new BABYLON.MeshBuilder.CreateBox(randomKey, {
+              width: mesh.width,
+              height: mesh.height,
+              depth: mesh.depth
+            }, _this.scene));
+
+            break;
+        }
+
+        currentMesh = _this.meshes[_this.meshes.length - 1];
+        currentMesh.material = gridMaterial;
+        currentMesh.rotation.y = Math.PI / 4;
+        currentMesh.position.x = mesh.x;
+        currentMesh.position.z = mesh.z;
+      });
+    }
+  }]);
+
+  return Buildings;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Buildings);
+
+/***/ }),
+
 /***/ "./components/World/Camera.js":
 /*!************************************!*\
   !*** ./components/World/Camera.js ***!
@@ -399,10 +469,41 @@ __webpack_require__.r(__webpack_exports__);
   }],
   buildings: {
     enabled: true,
+    material: {
+      mainColor: new BABYLON.Color3.FromHexString("#000000"),
+      lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
+      gridRatio: 0.1,
+      majorUnitFrequency: 1,
+      opacity: 1
+    },
     meshes: [{
       shape: "rectangle",
-      width: 0.5,
-      height: 0.5
+      width: 0.4,
+      height: 1.5,
+      depth: 0.5,
+      x: 9,
+      z: 9.5
+    }, {
+      shape: "rectangle",
+      width: 0.4,
+      height: 1,
+      depth: 0.5,
+      x: 9.5,
+      z: 9
+    }, {
+      shape: "rectangle",
+      width: 0.4,
+      height: 1.25,
+      depth: 0.5,
+      x: 9,
+      z: 10.5
+    }, {
+      shape: "rectangle",
+      width: 0.4,
+      height: 2,
+      depth: 0.5,
+      x: 10.5,
+      z: 9
     }]
   }
 });
@@ -968,9 +1069,9 @@ function () {
       }, this.scene);
       this.sphere.material = new BABYLON.StandardMaterial("sun-material", this.scene);
       this.sphere.material.emissiveColor = new BABYLON.Color3.FromHexString(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.color);
-      this.sphere.position.x = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.x;
-      this.sphere.position.z = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.z;
-      this.sphere.position.y = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.y;
+      this.sphere.position.x = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.position.x;
+      this.sphere.position.z = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.position.z;
+      this.sphere.position.y = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].sun.position.y;
     }
   }]);
 
@@ -1128,6 +1229,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Title__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Title */ "./components/World/Title.js");
 /* harmony import */ var _Sky__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Sky */ "./components/World/Sky.js");
 /* harmony import */ var _Sun__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Sun */ "./components/World/Sun.js");
+/* harmony import */ var _Buildings__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Buildings */ "./components/World/Buildings.js");
 
 
 
@@ -1135,6 +1237,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/World/World.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
 
 
 
@@ -1216,6 +1319,10 @@ function (_React$Component) {
         this.mountains = new _Mountains__WEBPACK_IMPORTED_MODULE_7__["default"](this.scene);
       }
 
+      if (_Config__WEBPACK_IMPORTED_MODULE_6__["default"].buildings.enabled) {
+        this.buildings = new _Buildings__WEBPACK_IMPORTED_MODULE_20__["default"](this.scene);
+      }
+
       if (_Config__WEBPACK_IMPORTED_MODULE_6__["default"].stars.enabled) {
         this.stars = new _Stars__WEBPACK_IMPORTED_MODULE_12__["default"](this.scene);
       }
@@ -1276,13 +1383,13 @@ function (_React$Component) {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 128
         },
         __self: this
       }, __jsx(_Backgrounds__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 129
         },
         __self: this
       }), __jsx("canvas", {
@@ -1292,7 +1399,7 @@ function (_React$Component) {
         ref: this.canvas,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 130
         },
         __self: this
       }));

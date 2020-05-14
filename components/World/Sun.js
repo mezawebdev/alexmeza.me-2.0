@@ -14,9 +14,9 @@ class Sun {
         this.sphere.material = new BABYLON.StandardMaterial("sun-material", this.scene);
         this.sphere.material.emissiveColor = new BABYLON.Color3.FromHexString(Config.sun.color);
 
-        this.sphere.position.x = Config.sun.x;
-        this.sphere.position.z = Config.sun.z;
-        this.sphere.position.y = Config.sun.y;
+        this.sphere.position.x = Config.sun.position.x;
+        this.sphere.position.z = Config.sun.position.z;
+        this.sphere.position.y = Config.sun.position.y;
     }
 }
 

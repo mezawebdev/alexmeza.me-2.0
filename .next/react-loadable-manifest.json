@@ -79,12 +79,6 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 7,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
       "id": 8,
       "name": null,
       "file": "static/chunks/styles.js",
@@ -109,6 +103,12 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
+      "id": 12,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
       "id": "./components/UI/Button/styles.scss",
       "name": "./components/UI/Button/styles.scss",
       "file": "static/chunks/styles.js",
@@ -117,6 +117,12 @@
     {
       "id": "./components/World/Backgrounds.js",
       "name": "./components/World/Backgrounds.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    },
+    {
+      "id": "./components/World/Buildings.js",
+      "name": "./components/World/Buildings.js",
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
     },

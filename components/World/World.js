@@ -13,6 +13,7 @@ import Grid from "./Grid";
 import Title from "./Title";
 import Sky from "./Sky";
 import Sun from "./Sun";
+import Buildings from "./Buildings";
 
 class World extends React.Component {
     constructor(props) {
@@ -61,6 +62,10 @@ class World extends React.Component {
 
         if (Config.mountains.enabled) {
             this.mountains = new Mountains(this.scene);
+        }
+
+        if (Config.buildings.enabled) {
+            this.buildings = new Buildings(this.scene);
         }
 
         if (Config.stars.enabled) {

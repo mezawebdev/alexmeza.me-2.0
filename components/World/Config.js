@@ -191,11 +191,45 @@ export default {
     ],
     buildings: {
         enabled: true,
+        material: {
+            mainColor: new BABYLON.Color3.FromHexString("#000000"),
+            lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
+            gridRatio: 0.1,
+            majorUnitFrequency: 1,
+            opacity: 1
+        },
         meshes: [
             {
                 shape: "rectangle",
-                width: 0.5,
-                height: 0.5
+                width: 0.4,
+                height: 1.5,
+                depth: 0.5,
+                x: 9,
+                z: 9.5
+            },
+            {
+                shape: "rectangle",
+                width: 0.4,
+                height: 1,
+                depth: 0.5,
+                x: 9.5,
+                z: 9
+            },
+            {
+                shape: "rectangle",
+                width: 0.4,
+                height: 1.25,
+                depth: 0.5,
+                x: 9,
+                z: 10.5
+            },
+            {
+                shape: "rectangle",
+                width: 0.4,
+                height: 2,
+                depth: 0.5,
+                x: 10.5,
+                z: 9
             }
         ]
     }
