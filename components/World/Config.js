@@ -89,7 +89,11 @@ export default {
     camera: {
         type: "free",
         maxZ: 0.001,
-        showTarget: false,
+        showTarget: true,
+        walk: true,
+        walkSpeed: 0.005,
+        view: "buildings",
+        targetDiameter: 0.01,
         initialPosition: {
             x: -0.11,
             y: 0.05,
@@ -101,8 +105,18 @@ export default {
             z: 0.1,
             diameter: 0.01
         },
-        walk: true,
-        walkSpeed: 0.005
+        views: [
+        	{
+	            location: "default",
+	            position: { x: -0.11, z: -0.11, y: 0.05 },
+	            target: { x: 0.1, z: 0.1, y: 0.075 }
+	        },
+	        {
+	            location: "buildings",
+	            position: { x: 9, z: 9, y: 0.05 },
+	            target: { x: 10, z: 10, y: 0.075 }
+	        }
+        ]
     },
     effects: {
         enabled: true,

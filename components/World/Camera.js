@@ -15,15 +15,17 @@ class Camera {
     }
 
     setCamera() {
+        let view = Config.camera.views.find(view => { return view.location === Config.camera.view });
+
         switch (Config.camera.type) {
             case "free":
                 this.camera = new BABYLON.UniversalCamera(
                     "UniversalCamera", 
-                    new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z), 
+                    new BABYLON.Vector3(view.position.x, view.position.y, view.position.z), 
                     this.scene
                 );
                 this.createTarget();
-                this.camera.setTarget(new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z));
+                this.camera.setTarget(new BABYLON.Vector3(view.target.x, view.target.y, view.target.z));
             break;
             case "arc":
                 this.camera = new BABYLON.ArcRotateCamera(
@@ -50,8 +52,10 @@ class Camera {
     }
 
     createTarget() {
+        let view = Config.camera.views.find(view => { return view.location === Config.camera.view });
+
         this.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
-            diameter: Config.camera.initialTarget.diameter
+            diameter: Config.camera.targetDiameter
         }, this.scene);
 
         this.targetSphere.material = new BABYLON.StandardMaterial("transparent-material", this.scene);
@@ -60,15 +64,15 @@ class Camera {
 
         this.targetSphere.material.alpha = Config.camera.showTarget ? 1 : 0;
 
-        this.targetSphere.position = new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z);
+        this.targetSphere.position = new BABYLON.Vector3(view.target.x, view.target.y, view.target.z);
 
-        if (Config.camera.type === "arc") {
+        if (Config.camera.type === "arc" || Config.camera.type === "free") {
             this.camera.lockedTarget = this.targetSphere;
         }
 
-        this.camera.position = new BABYLON.Vector3(Config.camera.initialPosition.x, Config.camera.initialPosition.y, Config.camera.initialPosition.z);
+        this.camera.position = new BABYLON.Vector3(view.position.x, view.position.y, view.position.z);
     }
-
+    
     animate() {
         // this.scene.onPointerObservable.add(pointerInfo => {
         //     switch (pointerInfo.type) {

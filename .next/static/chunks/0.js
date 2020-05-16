@@ -215,11 +215,15 @@ function () {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Camera, [{
     key: "setCamera",
     value: function setCamera() {
+      var view = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.views.find(function (view) {
+        return view.location === _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.view;
+      });
+
       switch (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.type) {
         case "free":
-          this.camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialPosition.z), this.scene);
+          this.camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(view.position.x, view.position.y, view.position.z), this.scene);
           this.createTarget();
-          this.camera.setTarget(new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.z));
+          this.camera.setTarget(new BABYLON.Vector3(view.target.x, view.target.y, view.target.z));
           break;
 
         case "arc":
@@ -236,19 +240,22 @@ function () {
   }, {
     key: "createTarget",
     value: function createTarget() {
+      var view = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.views.find(function (view) {
+        return view.location === _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.view;
+      });
       this.targetSphere = new BABYLON.MeshBuilder.CreateSphere("target", {
-        diameter: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.diameter
+        diameter: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.targetDiameter
       }, this.scene);
       this.targetSphere.material = new BABYLON.StandardMaterial("transparent-material", this.scene);
       this.targetSphere.material.emissiveColor = new BABYLON.Color3(1, 0, 0);
       this.targetSphere.material.alpha = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.showTarget ? 1 : 0;
-      this.targetSphere.position = new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.z);
+      this.targetSphere.position = new BABYLON.Vector3(view.target.x, view.target.y, view.target.z);
 
-      if (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.type === "arc") {
+      if (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.type === "arc" || _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.type === "free") {
         this.camera.lockedTarget = this.targetSphere;
       }
 
-      this.camera.position = new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialPosition.x, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialPosition.y, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialPosition.z);
+      this.camera.position = new BABYLON.Vector3(view.position.x, view.position.y, view.position.z);
     }
   }, {
     key: "animate",
@@ -383,7 +390,11 @@ __webpack_require__.r(__webpack_exports__);
   camera: {
     type: "free",
     maxZ: 0.001,
-    showTarget: false,
+    showTarget: true,
+    walk: true,
+    walkSpeed: 0.005,
+    view: "buildings",
+    targetDiameter: 0.01,
     initialPosition: {
       x: -0.11,
       y: 0.05,
@@ -395,8 +406,31 @@ __webpack_require__.r(__webpack_exports__);
       z: 0.1,
       diameter: 0.01
     },
-    walk: true,
-    walkSpeed: 0.005
+    views: [{
+      location: "default",
+      position: {
+        x: -0.11,
+        z: -0.11,
+        y: 0.05
+      },
+      target: {
+        x: 0.1,
+        z: 0.1,
+        y: 0.075
+      }
+    }, {
+      location: "buildings",
+      position: {
+        x: 9,
+        z: 9,
+        y: 0.05
+      },
+      target: {
+        x: 10,
+        z: 10,
+        y: 0.075
+      }
+    }]
   },
   effects: {
     enabled: true,
