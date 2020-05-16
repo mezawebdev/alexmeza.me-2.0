@@ -131,13 +131,18 @@ function () {
       _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.meshes.forEach(function (mesh) {
         var randomKey = "building-".concat(Math.round(Math.random() * 10000)),
             gridMaterial = new BABYLON.GridMaterial("gridMaterial-".concat(Math.round(Math.random() * 100)), _this.scene),
+            highlightMaterial = new BABYLON.StandardMaterial("highlightMaterial", _this.scene),
             currentMesh;
         gridMaterial.mainColor = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.mainColor;
         gridMaterial.lineColor = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.lineColor;
         gridMaterial.gridRatio = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.gridRatio;
         gridMaterial.backFaceCulling = false;
         gridMaterial.majorUnitFrequency = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.majorUnitFrequency;
-        gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.opacity;
+        gridMaterial.opacity = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].buildings.material.opacity; // standardMaterial.emissiveTexture = new BABYLON.Texture("/images/grid-texture-blue-2.png", this.scene);
+        // standardMaterial.emissiveTexture.uScale = 0.75;
+        // standardMaterial.emissiveTexture.vScale = 1.5;
+
+        highlightMaterial.emissiveColor = new BABYLON.Color3(1, 0, 0);
 
         switch (mesh.shape) {
           case "rectangle":
@@ -152,9 +157,15 @@ function () {
 
         currentMesh = _this.meshes[_this.meshes.length - 1];
         currentMesh.material = gridMaterial;
-        currentMesh.rotation.y = Math.PI / 4;
+        currentMesh.rotation.y = mesh.rotation;
         currentMesh.position.x = mesh.x;
         currentMesh.position.z = mesh.z;
+
+        if (mesh.highlight) {
+          currentMesh.material = highlightMaterial;
+        } else {
+          currentMesh.material = gridMaterial;
+        }
       });
     }
   }]);
@@ -194,7 +205,7 @@ function () {
     this.scene = scene;
     this.setCamera();
     this.animate();
-    this.camera.minZ = 0; // this.camera.attachControl(canvas, true);
+    this.camera.minZ = 0;
 
     if (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].debug.cameraControls) {
       this.camera.attachControl(canvas, true);
@@ -229,7 +240,8 @@ function () {
         diameter: _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.diameter
       }, this.scene);
       this.targetSphere.material = new BABYLON.StandardMaterial("transparent-material", this.scene);
-      this.targetSphere.material.alpha = 0;
+      this.targetSphere.material.emissiveColor = new BABYLON.Color3(1, 0, 0);
+      this.targetSphere.material.alpha = _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.showTarget ? 1 : 0;
       this.targetSphere.position = new BABYLON.Vector3(_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.x, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.y, _Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.initialTarget.z);
 
       if (_Config__WEBPACK_IMPORTED_MODULE_2__["default"].camera.type === "arc") {
@@ -371,6 +383,7 @@ __webpack_require__.r(__webpack_exports__);
   camera: {
     type: "free",
     maxZ: 0.001,
+    showTarget: false,
     initialPosition: {
       x: -0.11,
       y: 0.05,
@@ -411,7 +424,7 @@ __webpack_require__.r(__webpack_exports__);
     speed: 0.003
   },
   mountains: {
-    enabled: true,
+    enabled: false,
     meshes: [{
       heightMap: "images/height_map5.png",
       width: 15,
@@ -448,10 +461,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   sun: {
     enabled: true,
-    diameter: 8,
+    diameter: 9,
     position: {
       x: 17,
-      y: -0.5,
+      y: 0,
       z: 17
     },
     color: "#FF6C11"
@@ -472,38 +485,64 @@ __webpack_require__.r(__webpack_exports__);
     material: {
       mainColor: new BABYLON.Color3.FromHexString("#000000"),
       lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
-      gridRatio: 0.1,
-      majorUnitFrequency: 1,
+      gridRatio: 0.11,
+      majorUnitFrequency: 0.5,
       opacity: 1
     },
     meshes: [{
       shape: "rectangle",
+      highlight: false,
       width: 0.4,
       height: 1.5,
       depth: 0.5,
       x: 9,
-      z: 9.5
+      z: 9.5,
+      rotation: Math.PI / 4
     }, {
       shape: "rectangle",
-      width: 0.4,
+      highlight: false,
+      width: 0.6,
       height: 1,
       depth: 0.5,
       x: 9.5,
-      z: 9
+      z: 9,
+      rotation: Math.PI / 4
     }, {
       shape: "rectangle",
+      highlight: false,
       width: 0.4,
       height: 1.25,
       depth: 0.5,
       x: 9,
-      z: 10.5
+      z: 10.5,
+      rotation: Math.PI / 4
     }, {
       shape: "rectangle",
+      highlight: false,
       width: 0.4,
       height: 2,
       depth: 0.5,
       x: 10.5,
-      z: 9
+      z: 9,
+      rotation: Math.PI / 4
+    }, {
+      shape: "rectangle",
+      highlight: false,
+      width: 0.4,
+      height: 2,
+      depth: 0.5,
+      x: 10.5,
+      z: 9,
+      rotation: Math.PI / 4
+    }, {
+      shape: "rectangle",
+      highlight: false,
+      width: 0.6,
+      height: 0.7,
+      depth: 0.5,
+      x: 10,
+      z: 11,
+      rotation: Math.PI / 4
     }]
   }
 });

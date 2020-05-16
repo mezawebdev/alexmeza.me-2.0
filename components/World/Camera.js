@@ -9,8 +9,6 @@ class Camera {
         this.animate();
         this.camera.minZ = 0;
 
-        // this.camera.attachControl(canvas, true);
-        
         if (Config.debug.cameraControls) {
             this.camera.attachControl(canvas, true);
         }
@@ -58,7 +56,9 @@ class Camera {
 
         this.targetSphere.material = new BABYLON.StandardMaterial("transparent-material", this.scene);
 
-        this.targetSphere.material.alpha = 0;
+        this.targetSphere.material.emissiveColor = new BABYLON.Color3(1, 0, 0);
+
+        this.targetSphere.material.alpha = Config.camera.showTarget ? 1 : 0;
 
         this.targetSphere.position = new BABYLON.Vector3(Config.camera.initialTarget.x, Config.camera.initialTarget.y, Config.camera.initialTarget.z);
 

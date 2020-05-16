@@ -89,6 +89,7 @@ export default {
     camera: {
         type: "free",
         maxZ: 0.001,
+        showTarget: false,
         initialPosition: {
             x: -0.11,
             y: 0.05,
@@ -129,7 +130,7 @@ export default {
         speed: 0.003
     },
     mountains: {
-        enabled: true,
+        enabled: false,
         meshes: [
             {
                 heightMap: "images/height_map5.png",
@@ -168,10 +169,10 @@ export default {
     },
     sun: {
         enabled: true,
-        diameter: 8,
+        diameter: 9,
         position: {
             x: 17,
-            y: -0.5,
+            y: 0,
             z: 17
         },
         color: "#FF6C11"
@@ -194,42 +195,70 @@ export default {
         material: {
             mainColor: new BABYLON.Color3.FromHexString("#000000"),
             lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
-            gridRatio: 0.1,
-            majorUnitFrequency: 1,
+            gridRatio: 0.11,
+            majorUnitFrequency: 0.5,
             opacity: 1
         },
         meshes: [
             {
                 shape: "rectangle",
+                highlight: false,
                 width: 0.4,
                 height: 1.5,
                 depth: 0.5,
                 x: 9,
-                z: 9.5
+                z: 9.5,
+                rotation: Math.PI / 4
             },
             {
                 shape: "rectangle",
-                width: 0.4,
+                highlight: false,
+                width: 0.6,
                 height: 1,
                 depth: 0.5,
                 x: 9.5,
-                z: 9
+                z: 9,
+                rotation: Math.PI / 4
             },
             {
                 shape: "rectangle",
+                highlight: false,
                 width: 0.4,
                 height: 1.25,
                 depth: 0.5,
                 x: 9,
-                z: 10.5
+                z: 10.5,
+                rotation: Math.PI / 4
             },
             {
                 shape: "rectangle",
+                highlight: false,
                 width: 0.4,
                 height: 2,
                 depth: 0.5,
                 x: 10.5,
-                z: 9
+                z: 9,
+                rotation: Math.PI / 4
+            },
+            {
+                shape: "rectangle",
+                highlight: false,
+                width: 0.4,
+                height: 2,
+                depth: 0.5,
+                x: 10.5,
+                z: 9,
+                rotation: Math.PI / 4
+            },
+            {
+                shape: "rectangle",
+                highlight: false,
+                width: 0.6,
+                height: 0.7,
+                depth: 0.5,
+                x: 10,
+                z: 11,
+                rotation: Math.PI / 4
             }
         ]
     }

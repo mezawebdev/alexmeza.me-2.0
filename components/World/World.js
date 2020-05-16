@@ -26,9 +26,9 @@ class World extends React.Component {
             displayHeight = canvas.clientHeight * window.devicePixelRatio;
 
         if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-          canvas.width  = displayWidth;
-          canvas.height = displayHeight;
-          return true;
+            canvas.width  = displayWidth;
+            canvas.height = displayHeight;
+            return true;
         }
 
         return false;
