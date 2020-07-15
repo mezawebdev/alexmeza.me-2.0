@@ -154,7 +154,7 @@ export default {
                 subdivisions: 20,
                 rotation: 0.785,
                 x: 3,
-                z: 3, 
+                z: 3,  
                 y: -0.1,
                 grid: {
                     mainColor: new BABYLON.Color3.FromHexString("#000000"),
