@@ -76,7 +76,7 @@ export default {
         }
     },
     stars: {
-        enabled: false,
+        enabled: true,
         animated: true,
         amount: 300,
         minSize: 0.0025,
@@ -144,7 +144,7 @@ export default {
         speed: 0.003
     },
     mountains: {
-        enabled: false,
+        enabled: true,
         meshes: [
             {
                 heightMap: "images/height_map5.png",
