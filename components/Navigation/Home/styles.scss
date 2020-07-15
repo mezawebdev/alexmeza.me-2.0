@@ -61,6 +61,7 @@
     .name {
         text-align : center;
         filter     : drop-shadow(0px 0px 6px rgba(255, 67, 101, 0.5));
+        transition : margin-top $trans-dur ease-in-out;
 
         &.home {
             margin-top : 15px;
@@ -148,6 +149,7 @@
             font-size  : 1.25em;
             margin-top : 8px;
             display    : block;
+            overflow-y : hidden;
             transition : 
                 opacity $trans-dur ease-in-out,
                 height $trans-dur ease-in-out;
@@ -176,6 +178,30 @@
             color          : #f5f5f5;
         }
     }
+
+    .social {
+        margin-top : 10px;
+        text-align : center;
+        height     : 20px;
+        overflow-y : hidden;
+        transition : 
+            margin-top $trans-dur ease-in-out,
+            height $trans-dur ease-in-out,
+            opacity $trans-dur ease-in-out;
+
+        &.alt {
+            height     : 0px;
+            margin-top : 0px;
+            opacity    : 0;
+        }
+
+        a {
+            color     : white;
+            margin    : 0px 10px;
+            font-size : 1.25em;
+            filter    : drop-shadow(0px 0px 6px rgba(255, 67, 101, 0.5));
+        }
+    }
     
     .menu {
         display               : grid;
@@ -184,10 +210,15 @@
         margin-top            : 8px;
         z-index               : 5;
         position              : relative;
-        transition            : opacity $trans-dur ease-in-out;
+        height                : 25px;
+        overflow-y            : hidden;
+        transition            : 
+            height $trans-dur ease-in-out,
+            opacity $trans-dur ease-in-out;
 
         &.home {
             opacity        : 0;
+            height         : 0px;
             pointer-events : none;
         }
     }

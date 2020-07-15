@@ -8,7 +8,6 @@ import "./styles.scss";
 class HomeNavigation extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
     }
 
     render() {
@@ -47,6 +46,20 @@ class HomeNavigation extends React.Component {
                         <span>E</span>
                         <span>R</span>
                     </span>
+                </div>
+                <div className={`${ this.props.type } social`}>
+                    <a href="#">
+                        <i className="fab fa-github"></i>
+                    </a>
+                    <a href="#">
+                        <i className="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i className="fab fa-codepen"></i>
+                    </a>
+                    <a href="#">
+                        <i className="fab fa-linkedin"></i>
+                    </a>
                 </div>
                 <div className={`${ this.props.type } menu`}>
                     { 

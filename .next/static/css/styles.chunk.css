@@ -328,7 +328,8 @@ textarea {
 
 html,
 body {
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: 'Helvetica Neue', sans-serif;
+  background: black; }
   html p,
   html span,
   html h1,
@@ -347,7 +348,7 @@ body {
   body h5,
   body h6,
   body button {
-    font-family: 'Open Sans', sans-serif; }
+    font-family: 'Helvetica Neue', sans-serif; }
   html h1,
   body h1 {
     font-size: 1.5em;
@@ -374,6 +375,9 @@ body {
   body .page {
     padding-top: 125px;
     padding-bottom: 50px; }
+  html .text-shadow,
+  body .text-shadow {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75); }
 
 #home-menu {
   position: fixed;
@@ -400,15 +404,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0px 3px 0px #2DE2E6); }
+  filter: drop-shadow(0px 3px 0px #2DE2E6);
+  transition: transform 0.25s ease-in-out; }
+  .button-ui:hover {
+    cursor: pointer;
+    transform: scale(1.05); }
+  .button-ui:active {
+    transform: scale(0.95); }
   .button-ui .button-canvas {
     position: absolute;
     z-index: -1;
     filter: drop-shadow(0px 4px 7px black); }
   .button-ui span {
     position: relative;
-    top: -1px;
-    font-weight: 100; }
+    top: 1px;
+    font-weight: 500; }
 
 @keyframes lettermove1 {
   0% {
@@ -450,7 +460,8 @@ body {
       background: linear-gradient(115deg, rgba(3, 23, 30, 0.9) 50%, rgba(38, 48, 55, 0.9) 75%, rgba(3, 23, 30, 0.9) 95%); }
   #home-navigation .name {
     text-align: center;
-    filter: drop-shadow(0px 0px 6px rgba(255, 67, 101, 0.5)); }
+    filter: drop-shadow(0px 0px 6px rgba(255, 67, 101, 0.5));
+    transition: margin-top 1s ease-in-out; }
     #home-navigation .name.home {
       margin-top: 15px; }
       #home-navigation .name.home .header {
@@ -508,6 +519,7 @@ body {
       font-size: 1.25em;
       margin-top: 8px;
       display: block;
+      overflow-y: hidden;
       transition: opacity 1s ease-in-out, height 1s ease-in-out;
       text-shadow: 0px 1px 1px #919191, 0px 2px 1px #919191, 0px 3px 1px #919191, 0px 4px 1px #919191; }
       #home-navigation .name .subheader.home {
@@ -522,6 +534,21 @@ body {
       font-family: "Helvetica Neue", Helvetica, sans-serif;
       font-weight: 700;
       color: #f5f5f5; }
+  #home-navigation .social {
+    margin-top: 10px;
+    text-align: center;
+    height: 20px;
+    overflow-y: hidden;
+    transition: margin-top 1s ease-in-out, height 1s ease-in-out, opacity 1s ease-in-out; }
+    #home-navigation .social.alt {
+      height: 0px;
+      margin-top: 0px;
+      opacity: 0; }
+    #home-navigation .social a {
+      color: white;
+      margin: 0px 10px;
+      font-size: 1.25em;
+      filter: drop-shadow(0px 0px 6px rgba(255, 67, 101, 0.5)); }
   #home-navigation .menu {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -529,9 +556,12 @@ body {
     margin-top: 8px;
     z-index: 5;
     position: relative;
-    transition: opacity 1s ease-in-out; }
+    height: 25px;
+    overflow-y: hidden;
+    transition: height 1s ease-in-out, opacity 1s ease-in-out; }
     #home-navigation .menu.home {
       opacity: 0;
+      height: 0px;
       pointer-events: none; }
   #home-navigation button {
     background: none;
@@ -547,6 +577,60 @@ body {
   position: relative;
   height: 100vh; }
 
+.panel {
+  padding: 15px;
+  position: relative; }
+  .panel p {
+    color: white; }
+  .panel .panel-canvas {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    filter: drop-shadow(0px 4px 7px black); }
+
+.panel-header {
+  color: white;
+  font-size: 1.75em;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-weight: 200;
+  padding: 10px 0px;
+  border-radius: 5px;
+  display: table;
+  padding: 15px; }
+  .panel-header.center {
+    text-align: center; }
+
+.text {
+  color: white;
+  line-height: 25px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 0.9em; }
+  .text.center {
+    text-align: center; }
+
+#about .profile-picture-container {
+  height: 160px;
+  width: 100%;
+  margin-bottom: 15px; }
+  #about .profile-picture-container img {
+    display: block;
+    height: 100%;
+    margin: 0 auto; }
+
+#about .panel {
+  margin-bottom: 20px; }
+  #about .panel:last-child {
+    margin-bottom: 0px; }
+  #about .panel .work-experience {
+    outline: 1px solid red; }
+    #about .panel .work-experience img {
+      max-width: 300px; }
+
+.work-experience img {
+  max-width: 300px; }
 
 #backgrounds {
   width: 100vw;

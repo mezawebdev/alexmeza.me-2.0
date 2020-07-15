@@ -1,16 +1,26 @@
 .button-ui {
-    background                 : none;
-    border                     : none;
-    padding                    : 0px 18px;
-    text-transform             : uppercase;
-    font-size                  : 0.8em;
-    height                     : 35px;
-    color                      : #9affff;
-    position                   : relative;
-    display                    : flex;
-    justify-content            : center;
-    align-items                : center;
-    filter : drop-shadow(0px 3px 0px #2DE2E6);
+    background      : none;
+    border          : none;
+    padding         : 0px 18px;
+    text-transform  : uppercase;
+    font-size       : 0.8em;
+    height          : 35px;
+    color           : #9affff;
+    position        : relative;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    filter          : drop-shadow(0px 3px 0px #2DE2E6);
+    transition      : transform 0.25s ease-in-out;
+
+    &:hover {
+        cursor    : pointer;
+        transform : scale(1.05);
+    }
+
+    &:active {
+        transform : scale(0.95);
+    }
 
     .button-canvas {
         position : absolute;
@@ -20,7 +30,7 @@
 
     span {
         position    : relative;
-        top         : -1px;
-        font-weight : 100;
+        top         : 1px;
+        font-weight : 500;
     }
 }

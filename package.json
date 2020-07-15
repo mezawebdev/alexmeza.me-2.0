@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "@zeit/next-sass": "^1.0.1",
     "babylonjs": "^4.0.3",
     "babylonjs-materials": "^4.0.3",
@@ -19,6 +20,10 @@
     "next-page-transitions": "^1.0.0-beta.2",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-spring": "^8.0.27",
+    "react-spring-3d-carousel": "^1.2.0",
+    "uuid": "^8.2.0",
+    "uuidv4": "^6.1.1"
   }
 }

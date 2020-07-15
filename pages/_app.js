@@ -30,11 +30,14 @@ export default class MyApp extends App {
                     <script src="/js/vendor/babylon.max.js" />
                     <script src="/js/vendor/babylon.meshwriter.min.js"></script>
                     <script src="/js/vendor/babylonjs.materials.min.js"></script>
+                    <link rel="stylesheet" href="/css/vendor/glide.core.min.css"></link>
+                    <link rel="stylesheet" href="/css/vendor/glide.theme.min.css"></link>
                 </Head>
                 <PageTransition 
                     timeout={300} 
                     classNames="page-transition">
-                    <Component {...pageProps} />
+                    <Component 
+                        {...pageProps}  />
                 </PageTransition>
                 <style jsx global>{`
                     .page-transition-enter {
@@ -53,6 +56,7 @@ export default class MyApp extends App {
                     }`}
                 </style>
                 <World />
+                <script src="https://kit.fontawesome.com/0938b6ecae.js" crossOrigin="anonymous"></script>
             </Layout>
         )
     }

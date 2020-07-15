@@ -1,0 +1,11 @@
+.text {
+    color          : white;
+    line-height    : 25px;
+    font-weight    : 200;
+    letter-spacing : 1px;
+    font-size      : 0.9em;
+
+    &.center {
+        text-align : center;
+    }
+}

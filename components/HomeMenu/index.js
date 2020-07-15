@@ -13,7 +13,6 @@ for (let i = 1; i < App.navigation.items.length; i++) {
 class HomeMenu extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
     }
 
     render() {

@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_js_vendor_granim_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_js_vendor_granim_min_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _assets_scss_backgrounds_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/scss/backgrounds.scss */ "./assets/scss/backgrounds.scss");
 /* harmony import */ var _assets_scss_backgrounds_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_backgrounds_scss__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/World/Backgrounds.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/mezaWebLab/Lab/Projects/alexmeza.me 2.0/components/World/Backgrounds.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -287,9 +287,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   debug: {
-    axis: true,
+    axis: false,
     axisSize: 1.5,
-    cameraControls: true
+    cameraControls: false
   },
   palette: ["#2DE2E6", "#F706CF", "#791E94", "#FF4365", "#F9C80E", "#FF6C11"],
   canvas: {
@@ -339,7 +339,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   stars: {
-    enabled: true,
+    enabled: false,
     animated: true,
     amount: 300,
     minSize: 0.0025,
@@ -352,10 +352,10 @@ __webpack_require__.r(__webpack_exports__);
   camera: {
     type: "free",
     maxZ: 0.001,
-    showTarget: true,
+    showTarget: false,
     walk: true,
     walkSpeed: 0.005,
-    view: "buildings",
+    view: "default",
     targetDiameter: 0.01,
     initialPosition: {
       x: -0.11,
@@ -449,9 +449,9 @@ __webpack_require__.r(__webpack_exports__);
         b: 46
       },
       bottom: {
-        r: 247,
-        g: 6,
-        b: 207
+        r: 45,
+        g: 16,
+        b: 62
       }
     }
   },
@@ -477,11 +477,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   }],
   buildings: {
-    enabled: true,
+    enabled: false,
     material: {
       mainColor: new BABYLON.Color3.FromHexString("#000000"),
       lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
-      gridRatio: 0.11,
+      gridRatio: 0.075,
       majorUnitFrequency: 0.5,
       opacity: 1
     },
@@ -539,6 +539,15 @@ __webpack_require__.r(__webpack_exports__);
       x: 10,
       z: 11,
       rotation: Math.PI / 4
+    }, {
+      shape: "rectangle",
+      highlight: true,
+      width: 0.4,
+      height: 2,
+      depth: 0.5,
+      x: 11.5,
+      z: 9,
+      rotation: Math.PI / 4
     }]
   }
 });
@@ -567,7 +576,7 @@ class Consciousness {
       this.world.grid.animate();
     }
 
-    if (_Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.animated) {
+    if (_Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.animated && _Config__WEBPACK_IMPORTED_MODULE_0__["default"].stars.enabled) {
       this.world.stars.animate();
     }
   }
@@ -1142,7 +1151,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sky__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Sky */ "./components/World/Sky.js");
 /* harmony import */ var _Sun__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Sun */ "./components/World/Sun.js");
 /* harmony import */ var _Buildings__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Buildings */ "./components/World/Buildings.js");
-var _jsxFileName = "/Users/RescueAMeza_SD/Desktop/Desktop/mezaWebLab/Personal/alexmeza.me Version 2/components/World/World.js";
+var _jsxFileName = "/Users/RescueAMeza_SD/mezaWebLab/Lab/Projects/alexmeza.me 2.0/components/World/World.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1189,8 +1198,8 @@ class World extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
   startEngine() {
     this.engine = new BABYLON.Engine(this.canvas.current, true, {
-      stencil: true
-    });
+      stencil: false
+    }, null, true);
     this.scene = new BABYLON.Scene(this.engine);
     this.camera = new _Camera__WEBPACK_IMPORTED_MODULE_3__["default"](this.canvas.current, this.scene);
   }

@@ -55,14 +55,14 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./assets/scss/global.scss",
-      "name": "./assets/scss/global.scss",
+      "id": "./components/UI/Button/styles.scss",
+      "name": "./components/UI/Button/styles.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./pages/styles.scss",
-      "name": "./pages/styles.scss",
+      "id": "./pages/about/components/WorkExperience/styles.scss",
+      "name": "./pages/about/components/WorkExperience/styles.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
@@ -73,14 +73,32 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./layouts/default/styles.scss",
-      "name": "./layouts/default/styles.scss",
+      "id": "./pages/about/styles.scss",
+      "name": "./pages/about/styles.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 7,
-      "name": null,
+      "id": "./assets/scss/global.scss",
+      "name": "./assets/scss/global.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/PanelBasic/Text/styles.scss",
+      "name": "./components/UI/PanelBasic/Text/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Panel/styles.scss",
+      "name": "./components/UI/Panel/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/PanelBasic/Header/styles.scss",
+      "name": "./components/UI/PanelBasic/Header/styles.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
@@ -109,8 +127,38 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./components/UI/Button/styles.scss",
-      "name": "./components/UI/Button/styles.scss",
+      "id": 12,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 13,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 14,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 15,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 16,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./layouts/default/styles.scss",
+      "name": "./layouts/default/styles.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },

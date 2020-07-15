@@ -16,7 +16,6 @@ const panelCanvas = {
         this.canvas.width = this.button.offsetWidth;
         this.canvas.height = this.button.offsetHeight;
         this.draw1();
-        // this.draw2();
     },
     draw1() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -69,7 +68,6 @@ const panelCanvas = {
         this.ctx.lineWidth = this.borderWidth;
         this.ctx.strokeStyle = this.borderColor;
         this.ctx.fillStyle = this.backgroundColor;
-        // this.ctx.stroke();
         this.ctx.fill();
         this.ctx.closePath();
 
@@ -86,7 +84,6 @@ const panelCanvas = {
         this.ctx.strokeStyle = this.borderColor;
         this.ctx.fillStyle = this.backgroundColor;
         this.ctx.stroke();
-        // this.ctx.fill();
         this.ctx.closePath();
     }
 }

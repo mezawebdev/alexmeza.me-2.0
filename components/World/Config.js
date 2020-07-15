@@ -9,9 +9,9 @@ export default {
         }
     },
     debug: {
-        axis: true,
+        axis: false,
         axisSize: 1.5,
-        cameraControls: true
+        cameraControls: false
     },
     palette: [
         "#2DE2E6",
@@ -76,7 +76,7 @@ export default {
         }
     },
     stars: {
-        enabled: true,
+        enabled: false,
         animated: true,
         amount: 300,
         minSize: 0.0025,
@@ -89,10 +89,10 @@ export default {
     camera: {
         type: "free",
         maxZ: 0.001,
-        showTarget: true,
+        showTarget: false,
         walk: true,
         walkSpeed: 0.005,
-        view: "buildings",
+        view: "default",
         targetDiameter: 0.01,
         initialPosition: {
             x: -0.11,
@@ -175,9 +175,9 @@ export default {
                 b: 46
             },
             bottom: {
-                r: 247,
-                g: 6,
-                b: 207
+                r: 45,
+                g: 16,
+                b: 62
             }
         }
     },
@@ -205,11 +205,11 @@ export default {
         }
     ],
     buildings: {
-        enabled: true,
+        enabled: false,
         material: {
             mainColor: new BABYLON.Color3.FromHexString("#000000"),
             lineColor: new BABYLON.Color3.FromHexString("#2de2e6"),
-            gridRatio: 0.11,
+            gridRatio: 0.075,
             majorUnitFrequency: 0.5,
             opacity: 1
         },
@@ -272,6 +272,16 @@ export default {
                 depth: 0.5,
                 x: 10,
                 z: 11,
+                rotation: Math.PI / 4
+            },
+            {
+                shape: "rectangle",
+                highlight: true,
+                width: 0.4,
+                height: 2,
+                depth: 0.5,
+                x: 11.5,
+                z: 9,
                 rotation: Math.PI / 4
             }
         ]

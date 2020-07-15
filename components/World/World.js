@@ -43,8 +43,8 @@ class World extends React.Component {
 
     startEngine() {
         this.engine = new BABYLON.Engine(this.canvas.current, true, {
-            stencil: true
-        });
+            stencil: false
+        }, null, true);
         this.scene = new BABYLON.Scene(this.engine);
         this.camera = new Camera(this.canvas.current, this.scene);
     }

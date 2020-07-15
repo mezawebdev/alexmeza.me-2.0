@@ -10,7 +10,7 @@ class Consciousness {
             this.world.grid.animate();
         }
 
-        if (Config.stars.animated) {
+        if (Config.stars.animated && Config.stars.enabled) {
             this.world.stars.animate();
         }
     }
