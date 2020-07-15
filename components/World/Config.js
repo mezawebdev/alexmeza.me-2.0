@@ -144,7 +144,7 @@ export default {
         speed: 0.003
     },
     mountains: {
-        enabled: true,
+        enabled: true, 
         meshes: [
             {
                 heightMap: "images/height_map5.png",
