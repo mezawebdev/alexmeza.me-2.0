@@ -1,4 +1,7 @@
 export default {
+    colors: {
+        primary: "rgba(115, 188, 205, 1)"
+    },
     navigation: {
         items: [
             {
@@ -27,11 +30,11 @@ export default {
             companies: [
                 {
                     name: "Rescue Agency",
-                    image: "images/profile-1.jpg"
+                    image: "images/rescue-agency-logo.svg"
                 },
                 {
                     name: "Sunsick Studio",
-                    image: "images/profile-1.jpg"
+                    image: "images/sunsick-studio-logo.png"
                 }
             ]
         }

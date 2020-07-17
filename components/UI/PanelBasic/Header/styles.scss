@@ -1,16 +1,12 @@
 .panel-header {
-    color : white;
-    // color         : rgb(183, 222, 231);
+    color         : white;
     font-size     : 1.75em;
     margin        : 0 auto;
-    margin-bottom : 15px;
+    margin-bottom : 30px;
     font-weight   : 200;
-    padding       : 10px 0px;
-    // border        : 1px solid rgba(115, 188, 205, 1);
-    // background    : rgba(3, 23, 30, 0.75);
+    padding       : 0;
     border-radius : 5px;
     display       : table;
-    padding       : 15px;
 
     &.center {
         text-align : center;

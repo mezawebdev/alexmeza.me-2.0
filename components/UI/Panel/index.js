@@ -60,6 +60,22 @@ class Panel extends React.Component {
         this.canvas = React.createRef();
     }
 
+    getClasses() {
+        if (Array.isArray(this.props.classes)) {
+            let classes = "";
+
+            this.props.classes.forEach(class_ => {
+                classes += class_ + " ";
+            });
+
+            console.log(classes);
+
+            return classes;
+        } else {
+            return "";
+        }
+    }
+
     componentDidMount() {
         panelCanvas.init(this.panel.current, this.canvas.current);
     }
@@ -68,7 +84,7 @@ class Panel extends React.Component {
         return (
             <div
                 ref={this.panel} 
-                className="panel">
+                className={`panel ${ this.getClasses() } ${ this.props.className }`}>
                 <canvas
                     ref={this.canvas} 
                     className="panel-canvas">

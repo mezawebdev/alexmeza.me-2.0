@@ -1,0 +1,13 @@
+.panels {
+    .panel {
+        margin : 30px 0px;
+
+        &:first-child {
+            margin-top : 0;
+        }
+
+        &:last-child {
+            margin-bottom : 0px;
+        }
+    }
+}
