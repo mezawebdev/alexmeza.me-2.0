@@ -16,9 +16,11 @@ class Carousel extends React.Component {
                         className="glide__track" 
                         data-glide-el="track">
                         <ul className="glide__slides">
-                            {this.props.slides.map(slide => {
+                            {this.props.slides.map((slide, index) => {
                                 return (
-                                    <li className="glide__slide slide">
+                                    <li 
+                                        className="glide__slide slide"
+                                        key={index}>
                                         { slide }
                                     </li>
                                 );
@@ -32,12 +34,12 @@ class Carousel extends React.Component {
                         <button 
                             className="glide__arrow glide__arrow--left" 
                             data-glide-dir="<">
-                            <i class="fas fa-chevron-left"></i>
+                            <i className="fas fa-chevron-left"></i>
                         </button>
                         <button 
                             className="glide__arrow glide__arrow--right" 
                             data-glide-dir=">">
-                            <i class="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>

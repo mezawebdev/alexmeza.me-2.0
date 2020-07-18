@@ -1,6 +1,7 @@
 export default {
     colors: {
-        primary: "rgba(115, 188, 205, 1)"
+        primary: "rgba(115, 188, 205, 1)",
+        secondary: "#F706CF"
     },
     navigation: {
         items: [

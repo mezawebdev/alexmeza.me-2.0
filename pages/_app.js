@@ -31,7 +31,6 @@ export default class MyApp extends App {
                     <script src="/js/vendor/babylon.meshwriter.min.js"></script>
                     <script src="/js/vendor/babylonjs.materials.min.js"></script>
                     <link rel="stylesheet" href="/css/vendor/glide.core.min.css"></link>
-                    {/* <link rel="stylesheet" href="/css/vendor/glide.theme.min.css"></link> */}
                 </Head>
                 <PageTransition 
                     timeout={300} 

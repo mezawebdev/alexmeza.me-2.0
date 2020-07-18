@@ -4,15 +4,15 @@ import Panel from "../../components/UI/Panel";
 import Header from "../../components/UI/PanelBasic/Header";
 import "./styles.scss";
 
-class Portfolio extends React.Component {
+class Contact extends React.Component {
     render() {
         return (
             <div
                 className="page" 
-                id="portfolio">
+                id="contact">
                 <Panel>
                     <Header align="center">
-                        PORTFOLIO
+                        CONTACT
                     </Header>
                 </Panel>
             </div>
@@ -20,6 +20,6 @@ class Portfolio extends React.Component {
     }
 }
 
-Portfolio.Layout = Default;
+Contact.Layout = Default;
 
-export default Portfolio;
+export default Contact;
