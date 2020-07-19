@@ -7,6 +7,7 @@ import "../assets/scss/global.scss";
 import Injector from "../assets/js/injector";
 import Head from "next/head";
 import { PageTransition } from "next-page-transitions";
+import AppConfig from "../app.config.js";
 
 Injector.init();
 
@@ -54,7 +55,9 @@ export default class MyApp extends App {
                         transition: opacity 300ms;
                     }`}
                 </style>
-                <World />
+                {
+                    AppConfig.showWorld ? <World /> : null
+                }
                 <script src="https://kit.fontawesome.com/0938b6ecae.js" crossOrigin="anonymous"></script>
             </Layout>
         )

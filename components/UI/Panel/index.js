@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.scss";
+import HoloUIContainer from "../HoloUI/Container";
 
 const panelCanvas = {
     init(panel, canvas) {
@@ -58,6 +59,10 @@ class Panel extends React.Component {
         super(props);
         this.panel = React.createRef();
         this.canvas = React.createRef();
+        this.state = {
+            width: 0,
+            height: 0
+        };
     }
 
     getClasses() {
@@ -77,18 +82,25 @@ class Panel extends React.Component {
     }
 
     componentDidMount() {
-        panelCanvas.init(this.panel.current, this.canvas.current);
+        this.setState({
+            width: this.panel.current.offsetWidth,
+            height: this.panel.current.offsetHeight
+        });
     }
 
     render() {
         return (
             <div
-                ref={this.panel} 
+                ref={ this.panel } 
+                id={ this.state.id }
                 className={`panel ${ this.getClasses() } ${ this.props.className }`}>
-                <canvas
+                {/* <canvas
                     ref={this.canvas} 
                     className="panel-canvas">
-                </canvas>
+                </canvas> */}
+                <HoloUIContainer 
+                    width={ this.state.width }
+                    height={ this.state.height } />
                 { this.props.children }
             </div>
         );
